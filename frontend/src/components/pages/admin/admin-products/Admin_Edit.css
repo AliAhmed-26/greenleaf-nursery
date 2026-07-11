@@ -1,0 +1,268 @@
+/* ========================= */
+/* Overlay */
+/* ========================= */
+
+.overlay-edit {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    z-index: 999;
+}
+
+/* ========================= */
+/* Container */
+/* ========================= */
+
+.container-edit {
+    width: 760px;
+    max-width: 95%;
+    max-height: 90vh;
+
+    background: #fff;
+    border-radius: 16px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .18);
+}
+
+/* ========================= */
+/* Header */
+/* ========================= */
+
+.header-edit {
+    padding: 25px 30px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.header-edit h2 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.header-edit p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* ========================= */
+/* Body */
+/* ========================= */
+
+.body-edit {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ========================= */
+/* Rows */
+/* ========================= */
+
+.row-edit {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.row-edit .input-group-edit {
+    flex: 1;
+}
+
+/* ========================= */
+/* Input Group */
+/* ========================= */
+
+.input-group-edit {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group-edit label {
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group-edit input,
+.input-group-edit select,
+.input-group-edit textarea {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+
+    font-size: 15px;
+    outline: none;
+
+    transition: .25s;
+    box-sizing: border-box;
+}
+
+/* All non-textarea inputs (including file) share the same height now */
+.input-group-edit input:not([type="file"]),
+.input-group-edit select {
+    height: 48px;
+}
+
+.input-group-edit textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.input-group-edit input:focus,
+.input-group-edit select:focus,
+.input-group-edit textarea:focus {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, .15);
+}
+
+/* ========================= */
+/* File Input — scoped, matched height */
+/* ========================= */
+
+.input-group-edit input[type="file"] {
+    height: 48px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: #fafafa;
+}
+
+.input-group-edit input[type="file"]::file-selector-button {
+    height: 100%;
+    border: none;
+    background: #22c55e;
+    color: white;
+
+    padding: 0 16px;
+    border-radius: 6px 0 0 6px;
+
+    cursor: pointer;
+    margin-right: 12px;
+
+    transition: .25s;
+}
+
+.input-group-edit input[type="file"]::file-selector-button:hover {
+    background: #16a34a;
+}
+
+/* ========================= */
+/* Footer */
+/* ========================= */
+
+.footer-edit {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    padding: 20px 30px;
+
+    border-top: 1px solid #e8e8e8;
+}
+
+/* ========================= */
+/* Buttons */
+/* ========================= */
+
+.cancel-btn-edit,
+.save-btn-edit {
+    border: none;
+    border-radius: 8px;
+
+    padding: 12px 28px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.cancel-btn-edit {
+    background: #e5e7eb;
+    color: #333;
+}
+
+.cancel-btn-edit:hover {
+    background: #d1d5db;
+}
+
+.save-btn-edit {
+    background: #22c55e;
+    color: white;
+}
+
+.save-btn-edit:hover {
+    background: #16a34a;
+}
+
+/* ========================= */
+/* Scrollbar */
+/* ========================= */
+
+.container-edit::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container-edit::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 20px;
+}
+
+.container-edit::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media (max-width:768px) {
+
+    .overlay-edit {
+        padding: 15px;
+    }
+
+    .container-edit {
+        width: 100%;
+        max-height: 95vh;
+    }
+
+    .header-edit,
+    .body-edit,
+    .footer-edit {
+        padding: 20px;
+    }
+
+    .header-edit h2 {
+        font-size: 24px;
+    }
+
+    .row-edit {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .footer-edit {
+        flex-direction: column;
+    }
+
+    .footer-edit button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,7 @@
+.heading-cart{
+    text-align: center;
+}
+.light-bg-cart{
+    background-color: var(--light-bg);
+    /* border: 2px solid red; */
+}

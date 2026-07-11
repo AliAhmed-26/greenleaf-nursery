@@ -1,0 +1,54 @@
+.btns-shop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btns-shop>button {
+    border: none;
+    background-color: #e0e0e0;
+    ;
+    color: var(--text);
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.active-btn-shop {
+    background-color: var(--primary) !important;
+    /* border: 2px solid black !important; */
+    color: var(--white) !important;
+}
+
+@media (max-width:810px) {
+    .btns-shop {
+        
+        /* border: 2px solid blue; */
+        width: 84%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    .btns-shop>button {
+        border: none;
+        background-color: #e0e0e0;
+        
+        color: var(--text);
+        padding: 10px 20px;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .active-btn-shop {
+        background-color: var(--primary) !important;
+        /* border: 2px solid black !important; */
+        color: var(--white) !important;
+    }
+
+}

@@ -1,0 +1,89 @@
+
+
+
+.card-section-of-about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 10vh;
+    /* border: 2px solid black; */
+    width: 95%;
+    margin:50px auto;
+}
+/* 
+.card-of-about {
+    padding: 29px;
+    position: relative;
+    background-color: var(--white);
+
+    border-radius: 16px;
+
+    min-height: 210px;
+
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 13px;
+    color: var(--black);
+}
+
+.card-image-of-about {
+    width: 100%;
+    object-fit: contain;
+
+}
+
+.div-wrapper-flex-of-about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-description-of-about {
+    font-size: 14px;
+}
+
+.icon_about_heading{
+    color: var(--primary);
+    font-size: 40px;
+} */
+
+
+
+@media (max-width:810px) {
+    .card-section-of-about {
+        gap: 20px;
+        
+        width: 90%;
+        justify-content: flex-start;
+    }
+
+
+    /* .card-of-about {
+        width: 47.5%;
+
+    } */
+
+
+
+}
+
+@media (max-width:550px) {
+
+
+
+    .card-section-of-about {
+        justify-content: center;
+    }
+
+
+    /* .card-of-about {
+        width: 100%;
+    } */
+
+}

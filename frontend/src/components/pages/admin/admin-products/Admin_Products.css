@@ -1,0 +1,265 @@
+.Admin_products-page {
+    padding: 15px 30px;
+    background: var(--white);
+    min-height: calc(100vh - 70px);
+    box-shadow: var(--shadow);
+    /* width: 95%; */
+    margin: auto;
+}
+
+
+.Admin_products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.product-headng-product {
+    color: var(--primary);
+    text-align: center;
+}
+
+.Admin_products-header p {
+    color: var(--text-light);
+    color: var(--primary);
+    margin-top: 4px;
+}
+
+.add-product-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.add-product-btn:hover {
+    background: var(--primary-dark)
+}
+
+.Admin_products-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+}
+
+/* Table */
+
+.Admin_products-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+th {
+    padding: 18px;
+    text-align: left;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.Admin_products-table td {
+    padding: 18px;
+    color: #475569;
+    border-top: 1px solid #edf2f7;
+    vertical-align: middle;
+}
+
+.Admin_products-table tr:hover {
+    background: #f8fafc;
+}
+
+/* Product cell */
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-image {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.product-info h4 {
+    color: var(--text);
+    margin: 0;
+}
+
+.product-info p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+
+.category-badge-Indoor,
+.category-badge-Outdoor,
+.category-badge-Succulent,
+.category-badge-Flowering {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+
+.category-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    font-weight: 600;
+}
+
+.category-badge-Indoor {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.category-badge-Outdoor {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.category-badge-Succulent {
+    background: #fce7f3;
+    color: #be123c;
+}
+
+.category-badge-Flowering {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-in {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-low {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.status-critical {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+
+.status-out {
+    background: #7f1d1d;
+    color: white;
+}
+
+
+
+
+
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.edit-btn {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: var(--secondary-hover);
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+}
+
+/* Responsive */
+
+@media(max-width:900px) {
+
+    .Admin_products-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .Admin_products-table {
+        font-size: 13px;
+    }
+
+    .Admin_products-table th,
+    .Admin_products-table td {
+        padding: 12px;
+    }
+
+}
+
+@media(max-width:700px) {
+
+    .Admin_products-page {
+        padding: 20px;
+    }
+
+    .Admin_products-card {
+        overflow-x: auto;
+    }
+
+    .Admin_products-table {
+        min-width: 700px;
+    }
+
+    .product-info p {
+        display: none;
+    }
+
+}

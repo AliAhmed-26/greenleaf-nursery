@@ -1,0 +1,92 @@
+.div-wrapper-of-home-shop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 13px;
+
+}
+
+.add-cart-of-home-shop {
+    padding: 10px;
+
+    border: none;
+    text-align: center;
+    background-color: var(--primary);
+    color: var(--white);
+    margin: 10px auto;
+    /* border: 2px solid red; */
+    width: 90%;
+    /* transition-duration: 0.6s;
+    transition-property: all;
+    transition-timing-function: ease; */
+}
+
+/* .add-cart-of-home-shop:hover {
+    transform: translateY(-4px);
+    cursor: pointer;
+    background-color: var(--primary-dark);
+} */
+
+
+
+.card-of-home-shop {
+    padding: 20px;
+    position: relative;
+    width: 29.5%;
+    background-color: var(--primary);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, .4); */
+    /* background: #221b45; */
+    /* border: 1px solid rgba(255, 255, 255, .08); */
+    border-radius: 16px;
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease,
+        border-color .5s ease;
+    min-height: 250px;
+
+    background-color: var(--white);
+    color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.card-of-home-shop:hover {
+    transform: translateY(-10px);
+
+}
+
+.card-image-of-home-shop {
+    width: 100%;
+    /* object-fit: contain; */
+    height: 250px;
+
+}
+
+
+.card-description-of-home-shop {
+    /* font-size: 14px; */
+    color: var(--text);
+}
+
+@media (max-width:860px) {
+    .card-of-home-shop {
+        padding: 20px;
+        position: relative;
+        width: 47%;
+        /* min-height: 200px; */
+
+    }
+
+    .card-image-of-home-shop {
+        width: 100%;
+        height: 210px;
+
+    }
+}
+
+@media (max-width:600px) {
+    .card-of-home-shop {
+        padding: 38px;
+        width: 86%;
+    }
+}

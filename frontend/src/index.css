@@ -1,0 +1,69 @@
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ html {
+   font-size: 16px;
+ }
+
+ :root {
+   --primary: #2e7d32;
+   --primary-dark: #1b5e20;
+   --primary-light: #4caf50;
+   --secondary: #ff9800;
+   --light-bg: #f9f9f9;
+   --text: #333;
+   --text-light: #666;
+   --white: #fff;
+   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   --transition: all 0.3s ease;
+   --secondary-hover: #e68900;
+ }
+
+
+ /* :root {
+   --primary: #0a0a0a;
+   --primary-dark: #000000;
+   --primary-light: #2a2a2a;
+   --secondary: #22c55e;
+   --secondary-dark: #16a34a;
+
+   --accent-gold: #d4a017;
+   --light-bg: #fafafa;
+   --card-bg: #ffffff;
+   --text: #0a0a0a;
+   --text-light: #737373;
+
+   --white: #ffffff;
+
+   --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08);
+   --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1), 0 16px 40px rgba(0, 0, 0, 0.12);
+
+   --border: #e5e5e5;
+   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+ } */
+
+ body {
+   color: var(--text);
+   background-color: var(--light-bg);
+   line-height: 1.6;
+ }
+
+ button,
+ a {
+   border-radius: 6px;
+   transition-duration: 0.6s;
+   transition-property: all;
+   transition-timing-function: ease;
+   text-decoration: none;
+ }
+
+ button:hover,
+ a:hover {
+   transform: translateY(-4px);
+   cursor: pointer;
+   background-color: var(--primary-dark);
+ }

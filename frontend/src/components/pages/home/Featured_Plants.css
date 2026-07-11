@@ -1,0 +1,47 @@
+.featured-and-card-flex {
+    min-height: 70vh;
+}
+
+.featured-heading {
+
+    text-align: center;
+}
+
+.card-section-of-home-shop {
+    display: flex;
+    gap: 39px;
+    flex-wrap: wrap;
+
+    justify-content: flex-start;
+    /* padding: 20px 29px; */
+    align-items: center;
+    /* text-align: center; */
+    margin: 18px auto;
+    min-height: 70vh;
+    /* border: 2px solid black; */
+    width: 90%;
+    max-width: 1227px;
+
+
+}
+
+@media (max-width:810px) {
+    .card-section-of-home-shop {
+        gap: 12px;
+        padding: 10px 19px;
+    }
+
+
+  
+
+}
+
+@media (max-width:600px) {
+    .card-section-of-home-shop {
+        justify-content: center;
+        padding: 2px 9px;
+    }
+
+   
+
+}
