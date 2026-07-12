@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import "./Auth.css"
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -12,6 +12,9 @@ import toast from 'react-hot-toast'
 const Login = () => {
 
     const { cart_func, setToken } = useContext(Cart_Context)
+
+    const emailRef = useRef()
+    const passRef = useRef()
 
     // <------------ States ----------->
     const navigate = useNavigate()
@@ -63,55 +66,94 @@ const Login = () => {
 
     }
 
-
+    useEffect(() => {
+        emailRef.current.focus();
+    }, []);
 
     return (
-        <div className='logo-body'>
-            <div className="login-sign-div">
-                <h1 className="welcom-login">
-                    Welcome Back
-                </h1>
+        <>
+
+            <div className='logo-body'>
+                <div className="login-sign-div">
+                    <h1 className="welcom-login">
+                        Welcome Back
+                    </h1>
+                    <div className="demo-account">
+                        <h4>🌿 Demo Account</h4>
+                        <p><strong>Email:</strong> demo@gmail.com</p>
+                        <p><strong>Password:</strong> 12345</p>
+                        <p>You can use this demo account to explore all the features without creating a new account.</p>
+                    </div>
+
+
+                    <div className='email-login'>
+                        <input
+                            ref={emailRef}
+                            type="email"
+                            placeholder='Enter your email'
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    passRef.current?.focus()
+                                }
+                            }}
+                        />
+                    </div>
+
+                    <div className='password-login'>
+                        <input
+                            ref={passRef}
+                            type="password"
+                            placeholder='Enter your password'
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    console.log("F")
+                                    handleSubmitLogin()
+                                }
+                            }}
+                        />
 
 
 
-                <div className='email-login'>
-                    <input type="email" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </div>
+
+                    {error && <p className="error-ui">{error}</p>}
+
+                    <button
+                        className="sign-up"
+                        onClick={handleSubmitLogin}
+                        disabled={loading}
+
+                    >
+                        {
+                            !loading
+                                ?
+
+                                'Login'
+
+                                :
+                                (!error) &&
+                                'Logging in.....'
+
+                        }
+
+                    </button>
+
+                    <p className='dont-have-account'>
+                        Don't have an account?
+
+                        <span onClick={() => {
+                            navigate("/sign-up")
+                            setError("")
+                            clearInputs()
+                        }} style={{ cursor: 'pointer', color: 'blue' }}>Signup</span>
+                    </p>
                 </div>
-
-                <div className='password-login'>
-                    <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
-
-
-                </div>
-
-                {error && <p className="error-ui">{error}</p>}
-
-                <button className="sign-up" onClick={handleSubmitLogin} disabled={loading}>
-                    {
-                        !loading
-                            ?
-
-                            'Login'
-
-                            :
-                            (!error) &&
-                            'Logging in.....'
-
-                    }
-
-                </button>
-
-                <p className='dont-have-account'>
-                    Don't have an account?
-
-                    <span onClick={() => {
-                        navigate("/sign-up")
-                        setError("")
-                        clearInputs()
-                    }} style={{ cursor: 'pointer', color: 'blue' }}>Signup</span>
-                </p>
             </div>
-        </div>
+        </>
     )
 }
 

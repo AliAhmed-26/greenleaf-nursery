@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import apiRequest from '../components/auth_apis/fetch_api';
 import { Cart_Context } from '../components/context/context';
 
-const useAdminDashboard = (token) => {
+const useAdminDashboard = (token,role) => {
+    // const {role} = useContext(Cart_Context)
 
     // const {token} = useContext(Cart_Context)
 
@@ -47,7 +48,7 @@ const useAdminDashboard = (token) => {
 
 
     useEffect(() => {
-        if (token) {
+        if (token && role === "admin") {
 
             dashboard_summary_admin()
         }

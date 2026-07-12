@@ -1,13 +1,12 @@
 import React from 'react'
 import './Pic_Para.css'
-import image from './home-main.avif'
 import { Link } from 'react-router-dom'
 const Pic_Para = () => {
     return (
         <>
             <div className="pic-para">
                 <div className="image-div-about">
-                    <img className='img-about' src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="" />
+                    <img className='img-about' src={"http://localhost:3000/images/About.avif"} alt="" />
                 </div>
                 <div className="para-div-about">
                     <h2 className="heading-bringing-about">
@@ -22,7 +21,7 @@ const Pic_Para = () => {
                     </p>
                     <button className="visit-btn">
 
-                        <Link to='/contact' className='visit-link'>Visit Our Nursery</Link>
+                        <Link to='/app/shop' className='visit-link'>Visit Our Nursery</Link>
                     </button>
                 </div>
             </div>

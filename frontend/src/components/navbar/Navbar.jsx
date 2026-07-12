@@ -19,39 +19,16 @@ const Navbar = ({ links }) => {
     }
 
     const logoutt = async () => {
-        const confirmedd = confirm("Are you sure")
-        if (confirmedd) {
 
-            // let request_logout = await fetch("http://localhost:3000/auth/logout", {
-            //     method: "POST",
-            //     credentials: "include",
-            //     headers: {
-            //         Authorization: `Bearer ${localStorage.getItem("token")}`
-            //     }
-            // })
-            let request_logout = await apiRequest("/auth/logout", {
-                method: "POST",
-            })
+        let request_logout = await apiRequest("/auth/logout", {
+            method: "POST",
+        })
 
+        let response_logout = await request_logout.json()
+        if (request_logout.ok) {
+            localStorage.removeItem("token")
 
-
-            let response_logout = await request_logout.json()
-            if (request_logout.ok) {
-                localStorage.removeItem("token")
-
-                console.log("You are going to logged out")
-                setToken(null)
-                navigate("/login")
-                console.log("You are logged out")
-
-            }
-            else {
-                console.log("lkj")
-                console.log(response_logout.message)
-                console.log(request_logout.status);
-                console.log(request_logout.ok);
-                console.log(response_logout);
-            }
+            setToken(null)
 
         }
 

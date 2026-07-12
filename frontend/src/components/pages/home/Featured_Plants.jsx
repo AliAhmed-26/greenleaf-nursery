@@ -11,36 +11,8 @@ import { Cart_Context } from '../../context/context';
 const Featured_Plants = () => {
 
     const { allproducts } = useContext(Cart_Context)
-    // const home_array = [
-    // {
-    //     'id': 4,
-    //     'category': "indoor",
-    //     "image": Monstera_Deliciosa,
-    //     "title": "Monstera Deliciosa",
-    //     "price": "$34.99",
-    //     "para": "Popular tropical plant with distinctive split leaves."
-    // },
-
-    // {
-    //     'id': 2,
-    //     'category': "indoor",
-    //     "image": Snake_Plant,
-    //     "title": "Snake Plant",
-    //     "price": "$24.99",
-    //     "para": "Low-maintenance plant that purifies air and thrives in low light."
-    // },
-    // {
-    //     'id': 3,
-    //     'category': "indoor",
-    //     "image": Fiddle_Leaf_Fig,
-    //     "title": "Fiddle Leaf Fig",
-    //     "price": "$49.99",
-    //     "para": "Trendy plant with large, violin-shaped leaves."
-    // }
-    // ]
-
-
-    const home_array = allproducts.slice(2 , 5)
+    
+      const home_array = allproducts.slice(2 , 5)
     return (
         <div className='featured-and-card-flex'>
 

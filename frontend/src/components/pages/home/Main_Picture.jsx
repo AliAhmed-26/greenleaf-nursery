@@ -1,6 +1,5 @@
 import React from 'react'
 import './Main_Picture.css'
-import image from './home-main.avif'
 import { Link } from 'react-router-dom'
 const Main_Picture = () => {
   return (
@@ -8,7 +7,7 @@ const Main_Picture = () => {
       <div className="container">
         <div className="con">
 
-          <img src={image} className='main-picture-of-img' alt="hello" />
+          <img src={"http://localhost:3000/images/Home_Main.avif"} className='main-picture-of-img' alt="hello" />
           <div className="for-opa">
 
           </div>
@@ -23,9 +22,9 @@ const Main_Picture = () => {
           <p className="discover-para">
             Discover our collection of beautiful indoor and outdoor plants that purify the air and bring life to your spaces.
           </p>
-            <Link to='/app/shop' className="shop-home-btn">
-              Shop Now
-            </Link>
+          <Link to='/app/shop' className="shop-home-btn">
+            Shop Now
+          </Link>
         </div>
       </div>
     </>

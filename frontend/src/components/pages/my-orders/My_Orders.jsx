@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import './My_Orders.css'
 import { Cart_Context } from '../../context/context'
+import { useNavigate } from 'react-router-dom'
 const My_Orders = () => {
-
+    const navigate = useNavigate()
     const { my_order_func, myOrder, setMyOrder } = useContext(Cart_Context)
 
 
@@ -11,8 +12,6 @@ const My_Orders = () => {
     }, [])
 
 
-    console.log(`My order printing `)
-    console.log(myOrder)
 
 
     return (
@@ -23,11 +22,21 @@ const My_Orders = () => {
                 <p className="subtitle">
                     View all your previous purchases.
                 </p>
+                {myOrder.length === 0 && (
+                    <div className="empty-orders">
+                        <h2>No Orders Yet</h2>
+                        <p>You haven't placed any orders yet.</p>
+
+                        <button onClick={() => navigate("/app/shop")}>
+                            Browse Plants
+                        </button>
+                    </div>
+                )}
                 {myOrder.map((orders, index) => {
 
                     return (
 
-                        <div className="order-card-my-order">
+                        <div key={index} className="order-card-my-order">
                             <h2 className="total-item-my-order">
                                 Cart Items ({orders.totalItems})
                             </h2>
@@ -39,16 +48,16 @@ const My_Orders = () => {
                                     {`Date: ${new Date(orders.createdAt).toLocaleString()}`}
                                 </h4>
 
-                                <span className="pending">
+                                <span className={orders.status.toLowerCase()}>
                                     {orders.status}
                                 </span>
 
                             </div>
 
-                            {orders.items.map((item) => {
+                            {orders.items.map((item, index) => {
                                 return (
 
-                                    <>
+                                    <React.Fragment key={index}>
 
                                         <div key={index} className="card-cart">
 
@@ -78,7 +87,7 @@ const My_Orders = () => {
                                                 {`$${(item.qty * item.price).toFixed(2)}`}
                                             </h3>
                                         </div>
-                                    </>
+                                    </React.Fragment>
                                 )
                             })}
 

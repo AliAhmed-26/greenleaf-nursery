@@ -39,32 +39,22 @@ const Admin_Edit = () => {
         form_data.append("para", admin_form_update.para)
         form_data.append("image", admin_form_update.image)
 
-        let a = confirm("Are you sure you want to put")
 
-        if (a) {
 
-            // let request_upd_pro_adm = await fetch(`http://localhost:3000/admin/update-products/${id}`, {
-            //     method: "PUT",
-            //     headers: {
 
-            //         Authorization: `Bearer ${localStorage.getItem("token")}`
-            //     },
-            //     body: form_data
-            // })
-            let request_upd_pro_adm = await apiRequest(`/admin/update-products/${id}`, {
-                method: "PUT",
-                
-                body: form_data
-            })
-            let response_upd_pro_adm = await request_upd_pro_adm.json()
+        let request_upd_pro_adm = await apiRequest(`/admin/update-products/${id}`, {
+            method: "PUT",
 
-            // setAllproducts(response_upd_pro_adm)
+            body: form_data
+        })
+        let response_upd_pro_adm = await request_upd_pro_adm.json()
 
-            console.log("res_upd_pro_adm", response_upd_pro_adm)
 
-            navigate("/admin/products")
-            hi()
-        }
+        console.log("res_upd_pro_adm", response_upd_pro_adm)
+
+        navigate("/admin/products")
+        hi()
+
     }
 
 
@@ -77,7 +67,6 @@ const Admin_Edit = () => {
     }
 
     console.log(product)
-    // console.log(allproducts)
 
 
 
@@ -215,7 +204,7 @@ const Admin_Edit = () => {
                             <label>Description</label>
 
                             <textarea
-                                rows="6"
+                                rows="1"
                                 placeholder="Write product description..."
                                 name="para"
                                 onChange={change_admin_update_form}

@@ -7,13 +7,15 @@ import auth_middleware from "../middleware/userMiddleware.js";
 import nodemailer from "nodemailer";
 import transporter from "../config/mailer.js";
 import Otp from "../models/optModel.js";
+import { loginLimiter, otpLimiter, registerLimiter } from "../middleware/rateLimitMiddleware.js";
+// import otpLimiter from "../middleware/rateLimitMiddleware.js";
 
 const router = express.Router()
 
 
 // <----------- Register ------------>
 
-router.post('/register', [
+router.post('/register', registerLimiter, [
     body("name").notEmpty().withMessage("Name is required")
         .trim().isLength({ min: 3 }).withMessage("Name must be at least 3 characters"),
 
@@ -97,7 +99,8 @@ router.post('/register', [
 // <---------- Verification ------->
 
 
-router.post("/verification", async (req, res) => {
+router.post("/verification", otpLimiter, async (req, res) => {
+    console.log("Verification controller reached");
 
     const find_otp_obj = await Otp.findOne({
         email: req.body.email
@@ -157,7 +160,7 @@ router.post("/verification", async (req, res) => {
 
 // <----------- Login ------------>
 
-router.post('/login', [
+router.post('/login', loginLimiter, [
 
     body("email").notEmpty().withMessage("Email is required")
         .trim().isEmail().withMessage("Email must be valid"),

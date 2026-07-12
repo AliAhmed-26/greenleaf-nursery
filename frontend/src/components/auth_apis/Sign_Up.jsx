@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import "./Auth.css"
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -13,6 +12,11 @@ const SignUp = () => {
 
     const { cart_func, setToken } = useContext(Cart_Context)
 
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const passRef = useRef();
+    const confirmPassRef = useRef();
+
     // <------------ States ----------->
     const navigate = useNavigate()
 
@@ -23,6 +27,12 @@ const SignUp = () => {
     const [isLogin, setIsLogin] = useState(true)
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+
+
+    useEffect(() => {
+        nameRef.current.focus();
+    }, [])
+
 
     const clearInputs = () => {
         setName("")
@@ -37,7 +47,7 @@ const SignUp = () => {
 
         setLoading(true)
         setError("")
-        console.log("error",error)
+        console.log("error", error)
 
 
         const error_messsage_sign = await registerUser(name, email, password, confirmPassword)
@@ -54,7 +64,7 @@ const SignUp = () => {
         else {
             setError("")
             clearInputs()
-            
+
             navigate("/verify-otp", {
                 state: {
                     name,
@@ -79,20 +89,64 @@ const SignUp = () => {
                 </h1>
 
                 <div className='username-login'>
-                    <input type="text" placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} />
+                    <input
+                        type="text"
+                        ref={nameRef}
+                        placeholder='Enter your name'
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                emailRef.current?.focus()
+                            }
+                        }}
+                    />
                 </div>
 
                 <div className='email-login'>
-                    <input type="email" placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input
+                        ref={emailRef}
+                        type="email"
+                        placeholder='Enter your email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                passRef.current?.focus()
+                            }
+                        }}
+                    />
                 </div>
 
                 <div className='password-login'>
-                    <input type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input
+                        ref={passRef}
+                        type="password"
+                        placeholder='Enter your password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                confirmPassRef.current?.focus()
+                            }
+                        }}
+                    />
 
 
                 </div>
                 <div className='confirm-password-login'>
-                    <input type="password" placeholder='Enter your confirmed password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                    <input
+                        ref={confirmPassRef}
+                        type="password"
+                        placeholder='Enter your confirmed password'
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                handleSubmitSignUP()
+                            }
+                        }}
+                    />
                 </div>
 
 

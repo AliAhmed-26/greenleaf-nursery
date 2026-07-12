@@ -36,18 +36,6 @@ const About_Card = () => {
                         text_align={'center'}
                     />
 
-
-                    // <div className="card-of-about">
-
-                    //     <h1 className='icon_about_heading'>{item.icon_card_about}</h1>
-
-                    //     <h2 className="card-heading-of-about">{item.heading_card_about}</h2>
-
-                    //     <p className="card-description-of-about">{item.para_card_about}</p>
-
-                    // </div>
-
-
                 })}
             </div>
 

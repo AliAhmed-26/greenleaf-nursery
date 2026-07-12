@@ -36,17 +36,7 @@ const Admin_Add = () => {
         form_data.append("image", admin_form_add.image)
 
 
-        let a = confirm("Are you sure you want to put")
-
-        if (a) {
-
-            // let request_add_pro_adm = await fetch("http://localhost:3000/admin/add-product", {
-            //     method: "POST",
-            //     headers: {
-            //         Authorization: `Bearer ${localStorage.getItem("token")}`
-            //     },
-            //     body: form_data
-            // })
+       
             let request_add_pro_adm = await apiRequest("/admin/add-product", {
                 method: "POST",
                 body: form_data
@@ -57,7 +47,7 @@ const Admin_Add = () => {
 
             navigate("/admin/products")
             hi()
-        }
+        
     }
 
 

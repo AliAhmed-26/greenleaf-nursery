@@ -24,12 +24,10 @@ const Cart_Order_Collection = () => {
                     <button onClick={() => { navigate("/app/shop") }} className="browse-plant-button">Browse Plant</button>
                 </div>
             }
-            {cart.map((item, index) => {
-
-                console.log(cart)
+            {cart.map((item) => {
                 return (
-                    <>
-                        <div key={index} className="card-cart">
+                    <React.Fragment key={item.productId._id}>
+                        <div className="card-cart">
 
                             <div className="card-image-div-cart">
 
@@ -74,7 +72,7 @@ const Cart_Order_Collection = () => {
                                 {`$${(item.qty * item.productId.price).toFixed(2)}`}
                             </h3>
                         </div>
-                    </>
+                    </React.Fragment>
                 )
             })}
         </div>

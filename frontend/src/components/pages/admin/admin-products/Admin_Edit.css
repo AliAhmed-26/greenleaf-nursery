@@ -88,6 +88,7 @@
 }
 
 .input-group-edit label {
+    
     margin-bottom: 8px;
     font-size: 15px;
     font-weight: 600;
@@ -108,6 +109,7 @@
 
     transition: .25s;
     box-sizing: border-box;
+    
 }
 
 /* All non-textarea inputs (including file) share the same height now */
@@ -117,8 +119,9 @@
 }
 
 .input-group-edit textarea {
-    min-height: 150px;
+    min-height: 90px;
     resize: vertical;
+    /* border: 2px solid black; */
 }
 
 .input-group-edit input:focus,

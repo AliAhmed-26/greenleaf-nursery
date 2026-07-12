@@ -1,3 +1,5 @@
+// <------------ Helper function for authenticated API requests ----------->
+
 const apiRequest = async (argumental_url, option = {}) => {
     const BASE_URL = "http://localhost:3000"
 
@@ -12,15 +14,15 @@ const apiRequest = async (argumental_url, option = {}) => {
         },
     })
 
-    // let response_api_request = await request_api_request.json()
 
 
     if (request_api_request.status === 400) {
-        console.log("fetch appi 23")
         return request_api_request
     }
+
+     // Access token expired ----> generate a new one using refresh token
+
     else if (request_api_request.status === 401) {
-        console.log("fetch-api 25")
 
 
         let request_refresh = await fetch(`${BASE_URL}/auth/refresh-token`, {
@@ -30,25 +32,23 @@ const apiRequest = async (argumental_url, option = {}) => {
 
         let response_refresh = await request_refresh.json()
 
+    // Refresh token also expired ----> force user to login again
 
         if (!request_refresh.ok) {
             localStorage.removeItem("token")
             window.location.href = "/login"
-            console.log("Expiredddddddddddddddddddddd")
-            alert("DF")
+           
             throw new Error("Session expired");
 
 
         }
-        console.log("New access token generated")
+        
         localStorage.setItem("token", response_refresh.accessToken)
 
         access_token = response_refresh.accessToken
 
-        console.log("DFDFDFSfsd", access_token)
 
-
-        // Again request
+        // Retry the original request with the new access token
 
         let request_again = await fetch(BASE_URL + argumental_url, {
             ...option,
@@ -59,7 +59,6 @@ const apiRequest = async (argumental_url, option = {}) => {
             }
         })
 
-        // let response_again = await request_again.json()
 
         return request_again
     }

@@ -1,5 +1,3 @@
-
-
 import React, { useContext } from 'react'
 import Card_Home_Shop from '../../navbar/Card_Home_Shop'
 import { useState, useRef } from 'react';
@@ -17,7 +15,6 @@ const Shop = () => {
 
 
   return (
-
     <>
       <h1 className="heading-shop">
         Our Shop

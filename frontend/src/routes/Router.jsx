@@ -4,7 +4,6 @@ import Home from '../components/pages/home/Home'
 import Shop from '../components/pages/shop/Shop'
 import About from '../components/pages/about/About'
 import Care from '../components/pages/care/Care'
-import Contact from '../components/pages/contact/Contact'
 import Cart from '../components/pages/cart/Cart'
 import Footer from '../components/navbar/Footer'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
@@ -98,10 +97,7 @@ const router = createBrowserRouter([
         path: 'care',
         element: <Care />
       },
-      {
-        path: 'contact',
-        element: <Contact />
-      },
+      
       {
         path: 'cart',
         element: <Cart />,

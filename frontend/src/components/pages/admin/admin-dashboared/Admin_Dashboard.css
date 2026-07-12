@@ -123,7 +123,7 @@
     background-color: transparent;
 }
 
-.user-name-dashboard{
+.user-name-dashboard {
     font-weight: bold;
 }
 
@@ -195,6 +195,16 @@
     font-weight: 600;
     background: rgba(76, 175, 80, 0.15);
     color: var(--primary-dark);
+}
+
+.status.pending {
+    background: #fff4d4;
+    color: #d98b00;
+}
+
+.status.confirmed {
+    background: #dbeafe;
+    color: #2563eb;
 }
 
 .dashboard-table select {

@@ -3,7 +3,7 @@ import './Card_About_Care.css'
 const Card_About_Care = (item) => {
     return (
         <>
-        {/* In about i dont need align-item and only need text align center. But in care i need text align start   */}
+        {/* In about i need text align center. But in care i need text align start   */}
             <div className="card-of-about" style={{textAlign:item.text_align}}>
 
                 <h1 className='icon_about_heading'>{item.icon_card_about}</h1>

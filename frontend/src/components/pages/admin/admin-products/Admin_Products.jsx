@@ -20,15 +20,7 @@ const Admin_Products = () => {
         if (!confirmDelete) return;
 
         try {
-            // const request = await fetch(
-            //     `http://localhost:3000/admin/delete-products/${id}`,
-            //     {
-            //         method: "DELETE",
-            //         headers: {
-            //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            //         },
-            //     }
-            // );
+           
             const request = await apiRequest(
                 `/admin/delete-products/${id}`,
                 {
@@ -37,8 +29,6 @@ const Admin_Products = () => {
             );
 
             const response = await request.json();
-
-            console.log(response);
 
             hi();
         } catch (err) {

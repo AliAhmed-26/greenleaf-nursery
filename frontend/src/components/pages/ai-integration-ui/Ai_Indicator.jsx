@@ -81,9 +81,9 @@ const Ai_Indicator = () => {
                                     <p>Ask anything about plants, gardening or fertilizers.</p>
                                 </div>
                             ) : (
-                                messagesAiShop.map((text) => {
+                                messagesAiShop.map((text,index) => {
                                     return (
-                                        <div className={`${text.sender === "user" ? "user" : "ai"}-response-ai`}>
+                                        <div key={index} className={`${text.sender === "user" ? "user" : "ai"}-response-ai`}>
                                             <p className="user-message-para-ai">
                                                 {text.reply}
                                             </p>

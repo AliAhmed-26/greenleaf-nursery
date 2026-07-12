@@ -31,9 +31,14 @@ router.post("/place-order", auth_middleware, async (req, res) => {
             })
         })
 
-        const totalAmount = find_cart.reduce((sum, item) => {
+        const total = find_cart.reduce((sum, item) => {
             return (sum + (item.qty * item.productId.price))
         }, 0)
+
+        const shipping = 5.99
+        const totalTax = (total * 7.5 / 100).toFixed(2)
+        const totalAmount = (total + shipping + totalTax * 1)
+
 
         const totalItems = find_cart.reduce((sum, item) => {
             return (sum + item.qty)

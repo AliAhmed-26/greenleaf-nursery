@@ -1,10 +1,9 @@
-import mongoose from "mongoose"
+
 
 const shop_array_product = [
   {
-    'id': 1,
     'category': "Succulent",
-    "image": "Echveria_Succulent.avif",
+    "image": "Echeveria_Succulent.avif",
     "title": "Echeveria Succulent",
     "price": 12.99,
     "para": "Beautiful rosette-shaped succulent perfect for sunny spots.",
@@ -12,7 +11,6 @@ const shop_array_product = [
   },
 
   {
-    'id': 2,
     'category': "Indoor",
     "image": "Snake_Plant.avif",
     "title": "Snake Plant",
@@ -21,7 +19,6 @@ const shop_array_product = [
     "quantity": 10
   },
   {
-    'id': 3,
     'category': "Indoor",
     "image": "Fiddle_Leaf_Fig.avif",
     "title": "Fiddle Leaf Fig",
@@ -31,7 +28,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 4,
     'category': "Indoor",
     "image": "Monstera_Deliciosa.avif",
     "title": "Monstera Deliciosa",
@@ -41,7 +37,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 5,
     'category': "Indoor",
     "image": "Peace_Lily.avif",
     "title": "Peace Lily",
@@ -51,7 +46,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 6,
     'category': "Outdoor",
     "image": "Lavender.avif",
     "title": "Lavender",
@@ -61,7 +55,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 7,
     'category': "Flowering",
     "image": 'Rose_Bush.avif',
     "title": "Rose Bush",
@@ -71,7 +64,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 8,
     'category': "Indoor",
     "image": "ZZ_Plant.avif",
     "title": "ZZ Plant",
@@ -82,7 +74,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 9,
     'category': "Succulent",
     "image": "Aloe_Vera.avif",
     "title": "Aloe Vera",
@@ -92,7 +83,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 10,
     'category': "Flowering",
     "image": "Hydrangea.avif",
     "title": "Hydrangea",
@@ -102,7 +92,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 11,
     'category': "Indoor",
     "image": "Spider_Plant.avif",
     "title": "Spider Plant",
@@ -112,7 +101,6 @@ const shop_array_product = [
 
   },
   {
-    'id': 12,
     'category': "Succulent",
     "image": "Jade_Plant.avif",
     "title": "Jade Plant",

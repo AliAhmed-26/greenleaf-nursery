@@ -16,8 +16,6 @@ const Admin_Dashboard = () => {
 
   !dashboard.recent_orders_admin && []
 
-  console.log("response dashboard dfj;kjfkdsj")
-  console.log(dashboard.recent_orders_admin)
 
 
   return (
@@ -27,10 +25,8 @@ const Admin_Dashboard = () => {
       <div className="dashboard-heading">
         <h1>Dashboard</h1>
         <Underline />
-        {/* <p>Welcome back Admin</p> */}
       </div>
 
-      {/* Cards */}
 
       <div className="dashboard-cards">
 
@@ -107,7 +103,7 @@ const Admin_Dashboard = () => {
 
                     <td>
 
-                      <span className="status">
+                      <span className={`status ${order.status.toLowerCase()}`}>
                         {order.status}
                       </span>
 
