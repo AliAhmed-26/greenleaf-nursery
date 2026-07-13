@@ -5,6 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import { useContext } from 'react'
 import { Cart_Context } from '../../context/context.js'
 import { add_backend, decrease_backend, remove__from_backend } from './cart_backend_call.js';
+import { IMAGE_URL } from '../../../config.js';
 const Cart_Order_Collection = () => {
     const navigate = useNavigate()
     const { cart, addToCart, removeOne, deleteAll, totalItem, totalAmount, shipping, totalTax, bigTotal } = useContext(Cart_Context)
@@ -31,7 +32,7 @@ const Cart_Order_Collection = () => {
 
                             <div className="card-image-div-cart">
 
-                                <img src={`http://localhost:3000/images/${(item.productId.image)}`} className="card-image-cart" />
+                                <img src={`${IMAGE_URL}/${(item.productId.image)}`} className="card-image-cart" />
                             </div>
 
                             <div className="card-info-cart">
@@ -52,7 +53,6 @@ const Cart_Order_Collection = () => {
                                         {item.qty}
                                     </p>
                                     <button onClick={async () => {
-                                        console.log("PLUS CLICKED");
                                         await add_backend(item.productId._id)
                                         await addToCart(item.productId)
                                     }} className="circle-btn">

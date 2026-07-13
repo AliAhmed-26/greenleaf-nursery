@@ -13,12 +13,10 @@ import Public_Route from '../components/navbar/Public_Route'
 import Checkout from '../components/pages/cart/Checkout'
 import My_Orders from '../components/pages/my-orders/My_Orders'
 import Admin_Dashboard from '../components/pages/admin/admin-dashboared/Admin_Dashboard'
-// import Admin_Navbar from '../components/pages/admin/Admin_Navbar'
 import Admin_Products from '../components/pages/admin/admin-products/Admin_Products'
 import Admin_Navbar from '../components/pages/admin/admin-navbar/Admin_Navbar'
 import Admin_Edit from '../components/pages/admin/admin-products/Admin_Edit'
 import Admin_Add from '../components/pages/admin/admin-products/Admin_Add'
-import Admin_Orders from '../components/pages/admin/admin-orders/Admin_Orders'
 import Admin_Protected_Route from '../components/protectedroute/Admin_Protected_Route'
 import Login from '../components/auth_apis/Login'
 import SignUp from '../components/auth_apis/Sign_Up'
@@ -70,10 +68,7 @@ const router = createBrowserRouter([
         ]
 
       },
-      {
-        path: 'orders',
-        element: <Admin_Orders />
-      }
+      
     ]
   },
   {

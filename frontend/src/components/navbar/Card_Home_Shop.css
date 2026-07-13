@@ -16,27 +16,15 @@
     margin: 10px auto;
     /* border: 2px solid red; */
     width: 90%;
-    /* transition-duration: 0.6s;
-    transition-property: all;
-    transition-timing-function: ease; */
+    
 }
-
-/* .add-cart-of-home-shop:hover {
-    transform: translateY(-4px);
-    cursor: pointer;
-    background-color: var(--primary-dark);
-} */
-
-
 
 .card-of-home-shop {
     padding: 20px;
     position: relative;
     width: 29.5%;
     background-color: var(--primary);
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, .4); */
-    /* background: #221b45; */
-    /* border: 1px solid rgba(255, 255, 255, .08); */
+  
     border-radius: 16px;
 
     transition:
@@ -57,14 +45,12 @@
 
 .card-image-of-home-shop {
     width: 100%;
-    /* object-fit: contain; */
     height: 250px;
 
 }
 
 
 .card-description-of-home-shop {
-    /* font-size: 14px; */
     color: var(--text);
 }
 

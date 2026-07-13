@@ -10,13 +10,7 @@ const useOrders = () => {
     const [myOrder, setMyOrder] = useState([])
 
     const my_order_func = async () => {
-        // let request_my_order = await fetch("http://localhost:3000/order/my-orders", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         Authorization: `Bearer ${localStorage.getItem("token")}`
-        //     },
-        // })
+        
         let request_my_order = await apiRequest("/order/my-orders", {
             method: "POST",
             headers: {

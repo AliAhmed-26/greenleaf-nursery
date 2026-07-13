@@ -4,8 +4,6 @@
     /* border: 2px solid black; */
     padding: 29px;
     position: relative;
-    /* max-width: 1000px; */
-    /* min-width: 20px; */
     width: 30%;
     background-color: var(--white);
 
@@ -18,13 +16,6 @@
 
     display: flex;
 
-    
-
-
-    /* align-items: center; */
-    /* text-align: center; */
-
-    /* text-align:start; */
     justify-content: center;
     flex-direction: column;
 
@@ -52,15 +43,9 @@
         width: 47.5%;
 
     }
-
-
-
 }
 
 @media (max-width:600px) {
-
-
-
 
     .card-of-about {
         width: 100%;

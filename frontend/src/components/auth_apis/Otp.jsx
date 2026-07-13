@@ -6,6 +6,9 @@ import { Toaster, toast } from "react-hot-toast";
 
 
 const Otp = () => {
+
+    const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
     const location = useLocation()
 
     if (!location.state) {
@@ -21,9 +24,8 @@ const Otp = () => {
         e.preventDefault();
         setloading_otp(true)
 
-        console.log("Frontend", otp);
 
-        let request_otp = await fetch("http://localhost:3000/auth/verification", {
+        let request_otp = await fetch(`${BASE_URL}/auth/verification`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,7 +41,6 @@ const Otp = () => {
         let response_otp = await request_otp.json()
         if (!request_otp.ok) {
             setOtpError(response_otp.message)
-            console.log(response_otp.message)
             setloading_otp(false)
             return
         }
@@ -67,7 +68,8 @@ const Otp = () => {
                     pattern="[0-9]*"
                     maxLength={6}
                     value={otp}
-                    onChange={(e) =>{ setOtp(e.target.value)
+                    onChange={(e) => {
+                        setOtp(e.target.value)
                         setOtpError("")
                     }}
                 />

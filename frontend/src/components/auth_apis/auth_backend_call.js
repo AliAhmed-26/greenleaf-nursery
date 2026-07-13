@@ -1,13 +1,13 @@
 import apiRequest from "./fetch_api"
 
 // <------------ registerUser ----------->
-
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 export const registerUser = async (name, email, password, confirm_password) => {
 
     // ------ REQUEST_SIGN------
 
-    const request_sign = await fetch("http://localhost:3000/auth/register", {
+    const request_sign = await fetch(`${BASE_URL}/auth/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -42,7 +42,7 @@ export const loginUser = async (email, password, navigate, setToken) => {
     try {
         // <------------ REQUEST_SIGN- ----------->
 
-        const request_login = await fetch("http://localhost:3000/auth/login", {
+        const request_login = await fetch(`${BASE_URL}/auth/login`, {
             method: "POST",
             credentials: "include",
             headers: {

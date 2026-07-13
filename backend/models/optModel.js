@@ -6,17 +6,17 @@ const otpSchema = new Schema({
         type: String,
         required: true
     },
-    
+
     otp: {
         type: Number,
         required: true
     },
     expiresAt: {
-    type: Date,
-    required: true,
-    expires: 0
-},
-    
+        type: Date,
+        required: true,
+        expires: 0 // MongoDB automatically deletes this document after 0 seconds of expiration
+        
+    },
 
 }, {
     timestamps: true

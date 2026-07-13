@@ -2,21 +2,18 @@
     width: 90%;
     max-width: 1000px;
     margin: 50px auto;
-    /* border: 2px solid blue; */
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .my-orders h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
+    color: var(--primary);
+    text-align: center;
+    letter-spacing: .5px;
 }
 
-.subtitle {
-    color: gray;
-    margin-bottom: 30px;
-}
+
 
 .order-card-my-order {
     background: white;
@@ -114,13 +111,13 @@
 }
 
 .empty-orders h2 {
-    font-size: 30px;
+    /* font-size: 30px; */
     margin-bottom: 15px;
-    color: #2d7d46;
+    color: var(--text)
 }
 
 .empty-orders p {
-    color: gray;
+    /* color: gray; */
     margin-bottom: 25px;
     font-size: 17px;
 }

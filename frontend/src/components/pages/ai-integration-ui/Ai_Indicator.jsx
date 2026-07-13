@@ -3,48 +3,75 @@ import './Ai_Indicator.css'
 import { IoClose } from "react-icons/io5";
 import { MdAutoAwesome } from 'react-icons/md'
 import apiRequest from '../../auth_apis/fetch_api';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
 const Ai_Indicator = () => {
+    const input_ai_ref = useRef()
 
-    
     const [isAiOpen, setIsAiOpen] = useState(false)
     const [inputAi, setInputAi] = useState("")
     const [messagesAiShop, setMessagesAiShop] = useState([])
-    console.log(messagesAiShop)
+    
     const [loadingAiShop, setLoadingAiShop] = useState(false)
 
 
     const handleSubmitAiShop = async () => {
         setLoadingAiShop(true)
-        let request_ai_shop = await apiRequest("/ai/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                prompt: inputAi,
+        try {
 
+
+            let request_ai_shop = await apiRequest("/ai/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    prompt: inputAi,
+
+                })
             })
-        })
-        let response_ai_shop = await request_ai_shop.json()
-        setMessagesAiShop(
-            [
-                ...messagesAiShop,
+            let response_ai_shop = await request_ai_shop.json()
+            setMessagesAiShop(
+                [
+                    ...messagesAiShop,
 
+                    {
+                        sender: 'user',
+                        reply: inputAi
+                    },
+                    {
+                        sender: "ai",
+                        reply: response_ai_shop.reply
+                    }
+                ]
+            )
+
+        } catch (error) {
+            console.log(error)
+            setMessagesAiShop(prev => [
+                ...prev,
                 {
-                    sender: 'user',
-                    reply: inputAi
+                    sender: "user",
+                    reply: inputAi,
                 },
                 {
                     sender: "ai",
-                    reply: response_ai_shop.reply
-                }
-            ]
-        )
-        setLoadingAiShop(false)
-        setInputAi("")
-
+                    reply: "Sorry, something went wrong. Please try again.",
+                },
+            ]);
+        } finally {
+            setLoadingAiShop(false)
+            setInputAi("")
+        }
     }
+    useEffect(() => {
+        if (isAiOpen && !loadingAiShop) {
+            input_ai_ref.current?.focus();
+        }
+    }, [isAiOpen, loadingAiShop]);
+
+
     return (
         <>
             <div className="ai-shop">
@@ -55,22 +82,11 @@ const Ai_Indicator = () => {
                             size={28}
                             onClick={() => setIsAiOpen(false)}
                         />
-                        {console.log(messagesAiShop)}
-
+                        
+                        
                         <h1 className="heading-ai-shop">
                             AI Assistant
                         </h1>
-
-                        {/* <div className="messages-ai-shop">
-                            {messagesAiShop.length ===0 ? "Ask something" : messagesAiShop.map(text => {
-                                return (
-
-                                    <div className={`${text.sender === "user" ? "user" : "ai"}-response-ai`}>
-                                        <p className="user-message-para-ai">{text.reply}</p>
-                                    </div>
-                                )
-                            })}
-                        </div> */}
 
 
                         <div className="messages-ai-shop">
@@ -81,7 +97,7 @@ const Ai_Indicator = () => {
                                     <p>Ask anything about plants, gardening or fertilizers.</p>
                                 </div>
                             ) : (
-                                messagesAiShop.map((text,index) => {
+                                messagesAiShop.map((text, index) => {
                                     return (
                                         <div key={index} className={`${text.sender === "user" ? "user" : "ai"}-response-ai`}>
                                             <p className="user-message-para-ai">
@@ -96,11 +112,17 @@ const Ai_Indicator = () => {
 
                         <div className="input-ai-shop">
                             <input
+                                ref={input_ai_ref}
                                 value={inputAi}
                                 onChange={(e) => setInputAi(e.target.value)}
                                 type="text"
                                 placeholder="Ask me about plants..."
                                 disabled={loadingAiShop}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                        handleSubmitAiShop()
+                                    }
+                                }}
                             />
 
                             <button

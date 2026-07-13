@@ -3,6 +3,7 @@ import './Card_Home_Shop.css'
 import { Cart_Context } from '../context/context'
 import { useContext } from 'react'
 import { add_backend } from '../pages/cart/cart_backend_call'
+import { IMAGE_URL } from '../../config'
 
 const Card_Home_Shop = ({ item }) => {
     const { addToCart } = useContext(Cart_Context)
@@ -10,7 +11,7 @@ const Card_Home_Shop = ({ item }) => {
         <>
 
             <div className="card-of-home-shop">
-                <img src={`http://localhost:3000/images/${(item.image)}`} className="card-image-of-home-shop" />
+                <img src={`${IMAGE_URL}/${(item.image)}`} className="card-image-of-home-shop" />
 
                 <div className="div-wrapper-of-home-shop">
                     <h2 className="card-heading-of-home-shop">{item.title}</h2>

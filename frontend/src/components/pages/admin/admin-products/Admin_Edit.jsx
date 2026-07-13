@@ -8,7 +8,7 @@ const Admin_Edit = () => {
 
     const { hi, allproducts, setAllproducts } = useContext(Cart_Context)
     const { id } = useParams()
-    console.log(allproducts)
+    
 
 
 
@@ -50,7 +50,6 @@ const Admin_Edit = () => {
         let response_upd_pro_adm = await request_upd_pro_adm.json()
 
 
-        console.log("res_upd_pro_adm", response_upd_pro_adm)
 
         navigate("/admin/products")
         hi()
@@ -62,12 +61,7 @@ const Admin_Edit = () => {
     const product = allproducts.find(products => {
         return products._id === id
     })
-    if (!product) {
-        console.log("klklk")
-    }
-
-    console.log(product)
-
+    
 
 
     useEffect(() => {
@@ -104,7 +98,6 @@ const Admin_Edit = () => {
         }
     }
 
-    console.log(admin_form_update)
 
 
     return (

@@ -110,7 +110,7 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
-                                    console.log("F")
+                                    
                                     handleSubmitLogin()
                                 }
                             }}

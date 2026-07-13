@@ -2,7 +2,6 @@ import React from 'react'
 import './Footer.css'
 import Logo_And_Text from './Logo_And_Text'
 import { Link } from 'react-router-dom'
-import Footer_Icons from './Footer_Icons'
 import { useState } from 'react'
 import { FaPaperPlane } from "react-icons/fa";
 const Footer = () => {
@@ -38,17 +37,16 @@ const Footer = () => {
                         <p className="para-footer">
                             Bringing the beauty of nature into your home with quality plants and expert care advice since 2010.
                         </p>
-                        <Footer_Icons />
+                        
                     </div>
                     <div className="quick-link">
                         <h2 className="heading-footer-quick">
                             Quick Links
                         </h2>
                         <Link className='a-footer' to='/'>Home</Link>
-                        <Link className='a-footer' to="/shop">Shop</Link>
-                        <Link className='a-footer' to="/about">About</Link>
-                        <Link className='a-footer' to="/care">Care</Link>
-                        <Link className='a-footer' to="/contact">Contact</Link>
+                        <Link className='a-footer' to="shop">Shop</Link>
+                        <Link className='a-footer' to="about">About</Link>
+                        <Link className='a-footer' to="care">Care</Link>
                     </div>
                     <div className="newsletter">
                         <h2 className="newsletter-footer-heading">
@@ -76,7 +74,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="white-line"></div>
-                <div className="copy-right"> © 2023 GreenLeaf Nursery. All rights reserved.</div>
+                <div className="copy-right"> © 2026 GreenLeaf Nursery. All rights reserved.</div>
             </div>
         </>
     )
@@ -84,20 +82,3 @@ const Footer = () => {
 
 export default Footer
 
-/*
-div
-    div flex-coloumn green-info
-        green
-        bringing
-        icons
-    div flex-coloumn quick-link
-        Home
-        Shop
-        About
-        Care Tips
-        Contact
-    div flex-coloumnnewsletter
-        Newsletter
-        sunscribe
-        Email
- */

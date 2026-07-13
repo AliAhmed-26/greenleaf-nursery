@@ -4,18 +4,24 @@ import Product from "../models/productModel.js";
 const router = express.Router();
 
 
+// <---------- AI chat endpoint --------->
 
 router.post("/chat", auth_middleware, async (req, res) => {
+    let request_query;
     const { prompt } = req.body;
 
     if (!prompt?.trim()) {
         return res.status(400).json({ message: "Prompt is empty" });
     }
 
+    // <--------- Variables used for filtering products ------->
+
     let category = null;
     let sort_by_price_des = false;
     
    const user_prompt = prompt.toLowerCase();
+
+    // <------- Detect requested category from the user's prompt ----->
 
    if (user_prompt.includes("indoor")) {
     category = "Indoor"
@@ -30,41 +36,46 @@ router.post("/chat", auth_middleware, async (req, res) => {
     category = "Succulent"
    }
    
-let request_query;
+    
    if (
     user_prompt.includes("cheap") ||
     user_prompt.includes("low cost") ||
     user_prompt.includes("budget") ||
     user_prompt.includes("affordable")
-)
+    )
      {
     sort_by_price_des = true
     }
+
+    // <-------- Detect if user wants low-priced products ------>
     
-if (sort_by_price_des && category) {
+    if (sort_by_price_des && category) {
    
+    // <-------- Filter by category and sort by lowest price ------->
+
     request_query = await Product.find({
         category : category
     }).sort({price:1})
-}
-else if (!category && sort_by_price_des) {
+    }
+    else if (!category && sort_by_price_des) {
     request_query = await Product.find().sort({price : 1})
-}
-else if ( category &&!sort_by_price_des ) {
+    }
+    else if ( category &&!sort_by_price_des ) {
     
      request_query = await Product.find({
         category : category
     })
-}
-else {
+    }
+    else {
     request_query = await Product.find()
 
-}
+    }
 
+    // <------ Convert product objects into plain text for Gemini ------>
 
-const products = request_query.map(e=>{
-    return `Title: ${e.title} | Category: ${e.category} | Price: $${e.price}`
-}).join("\n")
+    const products = request_query.map(e=>{
+        return `Title: ${e.title} | Category: ${e.category} | Price: $${e.price}`
+    }).join("\n")
 
     
 
@@ -111,7 +122,6 @@ const products = request_query.map(e=>{
 
         const data = await response.json();
 
-        // console.log("API Response:", JSON.stringify(data, null, 2));
 
         if (!response.ok) {
             return res.status(response.status).json({
@@ -126,10 +136,15 @@ const products = request_query.map(e=>{
             });
         }
 
+        // <------- Extract AI reply and send to frontend -------->
+
         const text = data.candidates[0].content.parts[0].text;
         res.status(200).json({ reply: text });
 
     } catch (error) {
+
+        // <------ Handle unexpected server/API errors --------->
+
         console.error("Gemini API Error:", error);
         res.status(500).json({
             message: "Failed to generate response",
@@ -140,69 +155,3 @@ const products = request_query.map(e=>{
 
 
 export default router
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import express from "express";
-// import { GoogleGenerativeAI } from "@google/generative-ai";
-// import auth_middleware from "../middleware/userMiddleware.js";
-// const router = express.Router();
-
-// const ai = new GoogleGenerativeAI( process.env.GEMINI_API_KEY)
-
-// router.post("/chat", auth_middleware, async (req, res) => {
-//     const prompt = req.body.prompt
-//     console.log(process.env.GEMINI_API_KEY);
-//     console.log(process.env.GEMINI_API_KEY?.length);
-//     if (!prompt) {
-//         return res.status(400).json({
-//             message: "Prompt is empty"
-//         })
-//     }
-//     try {
-//         const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
-//         const result = await model.generateContent(
-//             `You are an AI assistant for an online plant store.
-//             Only answer questions about Plants, Gardening, Fertilizers, Plant care.
-            
-//             User Question: ${prompt}`
-//         );
-
-
-//         const text = result.response.text();
-
-
-//         res.status(200).json({ reply: text });
-//     } catch (error) {
-//         console.error("Error:", error.message);
-//         res.status(500).json({
-//             message: "Failed to generate AI response",
-//             error: error.message
-//         });
-//     }
-
-// })
-
-

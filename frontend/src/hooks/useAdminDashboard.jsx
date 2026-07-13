@@ -4,9 +4,6 @@ import apiRequest from '../components/auth_apis/fetch_api';
 import { Cart_Context } from '../components/context/context';
 
 const useAdminDashboard = (token,role) => {
-    // const {role} = useContext(Cart_Context)
-
-    // const {token} = useContext(Cart_Context)
 
     const [dashboard, setDashboard] = useState({
         total_products_admin: 0,
@@ -18,33 +15,17 @@ const useAdminDashboard = (token,role) => {
         recent_orders_admin: [],
     });
 
-
-
-
-
     const dashboard_summary_admin = async () => {
-        // let request_dashboard = await fetch("http://localhost:3000/admin/dashboard", {
-        //     headers: {
-        //         Authorization: `Bearer ${localStorage.getItem("token")}`
-        //     }
-        // })
+       
         let request_dashboard = await apiRequest("/admin/dashboard", {
 
         })
         let response_dashboard = await request_dashboard.json()
 
-        // if (!response_dashboard) {
-
-        //     setDashboard()
-        // }
+        
         setDashboard(response_dashboard)
 
-        // console.log(`response dashboard ${response_dashboard}`)
-        console.log("response dashboard")
-        console.log(response_dashboard)
-
     }
-
 
 
     useEffect(() => {
@@ -57,16 +38,7 @@ const useAdminDashboard = (token,role) => {
 
 
     const change_status_func = async (id, status) => {
-        // let request_upd_status = await fetch(`http://localhost:3000/admin/update-action/${id}`, {
-        //     method: "PUT",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         Authorization: `Bearer ${localStorage.getItem("token")}`
-        //     },
-        //     body: JSON.stringify({
-        //         status: status
-        //     })
-        // })
+       
         let request_upd_status = await apiRequest(`/admin/update-action/${id}`, {
             method: "PUT",
             headers: {

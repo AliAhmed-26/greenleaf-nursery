@@ -1,7 +1,6 @@
 .main-div-footer {
 
     border: 2px solid black;
-    /* min-height: 70vh; */
     background-color: var(--primary-dark);
     margin-top: 70px;
 
@@ -9,8 +8,6 @@
 
 .main-div-footer * {
 
-    /* min-height: 70vh; */
-    /* background-color: var(--primary-dark); */
     color: var(--white);
 }
 
@@ -27,15 +24,9 @@
 }
 
 .footer-big-div>* {
-    /* border: 2px solid red; */
     width: 31%;
     min-height: 200px
 }
-
-.heading-footer-quick {
-    /* margin-bottom: 13px; */
-}
-
 .green-info {
     display: flex;
     flex-direction: column;
@@ -72,13 +63,11 @@
 }
 
 .footer-input-btn-div {
-    /* border: 2px solid white; */
     display: flex;
     justify-content: center;
 }
 
 .footer-email-btn {
-    /* color: black; */
     border: none;
     width: 20%;
     background-color: var(--secondary);
@@ -101,11 +90,9 @@
 .footer-send-icon {
     color: black;
     font-size: 18px;
-    /* background-color: black; */
 }
 
 .footer-input {
-    /* border: 2px solid black; */
     flex: 1;
     padding: 14px;
     color: black;
@@ -116,7 +103,6 @@
 
 @media (max-width:810px) {
     .footer-big-div {
-        /* background-color: var(--primary-dark); */
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -125,7 +111,7 @@
 
     }
 
-    .footer-big-div>* {}
+ 
 
     .green-info {
         width: 60%;
@@ -138,7 +124,6 @@
 
 @media (max-width:500px) {
     .footer-big-div {
-        /* background-color: var(--primary-dark); */
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -150,9 +135,7 @@
     .footer-big-div>* {
         width: 100%;
     }
-
-    .green-info {}
-
+    
     .quick-link {
         flex: 1;
     }

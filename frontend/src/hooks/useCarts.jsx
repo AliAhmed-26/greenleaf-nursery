@@ -7,21 +7,13 @@ const useCarts = () => {
     const [cart, setCart] = useState([])
 
     const cart_func = async () => {
-        // let request_cart = await fetch("http://localhost:3000/cart/myProducts", {
-        //     method: "POST",
-        //     headers: {
-        //         Authorization: `Bearer ${localStorage.getItem("token")}`
-        //     }
-        // })
-
-        
+                
         let request_cart = await apiRequest("/cart/myProducts", {
             method: "POST",
         })
 
         let response_cart = await request_cart.json()
-        console.log("cart printing")
-        console.log(response_cart)
+        
         if (request_cart.ok && Array.isArray(response_cart)) {
 
             setCart(response_cart)
@@ -48,7 +40,7 @@ const useCarts = () => {
 
             toast.success(`${item.title} added to cart`);
         }
-        console.log(item)
+        
         cart_func()
     };
 
@@ -89,10 +81,10 @@ const useCarts = () => {
     } catch (error) {
         console.log(error)
     }
+
+
     // const totalItem = 9
     // const totalAmount = 9
-
-
 
     const shipping = 5.99
     const totalTax = (totalAmount * 7.5 / 100).toFixed(2)

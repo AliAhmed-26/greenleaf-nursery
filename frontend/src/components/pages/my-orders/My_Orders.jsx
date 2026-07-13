@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import './My_Orders.css'
 import { Cart_Context } from '../../context/context'
 import { useNavigate } from 'react-router-dom'
+import Underline from '../../navbar/Underline'
+import { IMAGE_URL } from '../../../config'
 const My_Orders = () => {
     const navigate = useNavigate()
     const { my_order_func, myOrder, setMyOrder } = useContext(Cart_Context)
@@ -18,10 +20,11 @@ const My_Orders = () => {
         <div>
             <div className="my-orders">
 
-                <h1>My Orders</h1>
-                <p className="subtitle">
-                    View all your previous purchases.
-                </p>
+                <h1>
+                    My Orders
+                    <Underline />
+                </h1>
+
                 {myOrder.length === 0 && (
                     <div className="empty-orders">
                         <h2>No Orders Yet</h2>
@@ -63,7 +66,7 @@ const My_Orders = () => {
 
                                             <div className="card-image-div-cart">
 
-                                                <img src={`http://localhost:3000/images/${(item.image)}`} className="card-image-cart" />
+                                                <img src={`${IMAGE_URL}/${(item.image)}`} className="card-image-cart" />
                                             </div>
 
                                             <div className="card-info-cart">

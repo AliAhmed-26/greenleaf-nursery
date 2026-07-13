@@ -43,7 +43,6 @@ const Admin_Add = () => {
             })
             let response_add_pro_adm = await request_add_pro_adm.json()
 
-            console.log("res_add_pro_adm", response_add_pro_adm)
 
             navigate("/admin/products")
             hi()

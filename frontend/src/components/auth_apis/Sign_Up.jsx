@@ -47,7 +47,6 @@ const SignUp = () => {
 
         setLoading(true)
         setError("")
-        console.log("error", error)
 
 
         const error_messsage_sign = await registerUser(name, email, password, confirmPassword)
@@ -72,7 +71,6 @@ const SignUp = () => {
                     password
                 }
             });
-            // await cart_func()
         }
         setLoading(false)
 

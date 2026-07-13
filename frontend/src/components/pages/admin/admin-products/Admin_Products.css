@@ -9,10 +9,12 @@
 
 
 .Admin_products-header {
+    /* border: 2px solid black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .product-headng-product {
@@ -51,8 +53,6 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
 }
 
-/* Table */
-
 .Admin_products-table {
     width: 100%;
     border-collapse: collapse;
@@ -78,8 +78,6 @@ th {
 .Admin_products-table tr:hover {
     background: #f8fafc;
 }
-
-/* Product cell */
 
 .product-info {
     display: flex;
@@ -223,14 +221,14 @@ th {
     background: #fecaca;
 }
 
-/* Responsive */
 
 @media(max-width:900px) {
 
-    .Admin_products-header {
-        flex-direction: column;
+    .Admin_products-header p {
+        /* flex-direction: column;
         gap: 15px;
-        align-items: flex-start;
+        align-items: flex-start; */
+        display: none;
     }
 
     .Admin_products-table {

@@ -1,12 +1,13 @@
 import React from 'react'
 import './Pic_Para.css'
 import { Link } from 'react-router-dom'
+import { IMAGE_URL } from '../../../config'
 const Pic_Para = () => {
     return (
         <>
             <div className="pic-para">
                 <div className="image-div-about">
-                    <img className='img-about' src={"http://localhost:3000/images/About.avif"} alt="" />
+                    <img className='img-about' src={`${IMAGE_URL}/About.avif`} alt="" />
                 </div>
                 <div className="para-div-about">
                     <h2 className="heading-bringing-about">

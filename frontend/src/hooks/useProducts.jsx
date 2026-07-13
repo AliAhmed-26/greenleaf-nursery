@@ -18,12 +18,6 @@ const useProducts = () => {
         hi()
     }, [])
 
-
-    // useEffect(() => {
-        // console.log("Products updated:", allproducts);
-    // }, [allproducts]);
-
-
     const handleAll = () => {
         setActive_button("all")
         setShop_array_state(allproducts)
@@ -32,7 +26,7 @@ const useProducts = () => {
     const handleIndoor = () => {
         setActive_button("Indoor")
         setShop_array_state(allproducts.filter(e => {
-            console.log("Indoor")
+            
             return e.category === "Indoor"
 
         }))

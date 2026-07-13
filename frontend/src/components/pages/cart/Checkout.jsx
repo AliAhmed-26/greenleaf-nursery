@@ -17,10 +17,7 @@ const Checkout = () => {
     };
 
     useEffect(() => {
-
-
         checkout_func();
-
     }, [])
 
 

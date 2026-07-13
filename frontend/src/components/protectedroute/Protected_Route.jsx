@@ -12,11 +12,7 @@ const Protected_Route = () => {
     if (!token) {
         return <Navigate to='/login' />
     }
-    // if (role !== "admin") {
-    //     console.log(role)
-    //     return <Navigate to="/app/home" replace />;
-    // }
-
+    
     const links = (role === "user" ? [
         { title: "Home", path: "/app/home" },
         { title: "Shop", path: "/app/shop" },
@@ -30,7 +26,6 @@ const Protected_Route = () => {
         { title: "About", path: "/app/about" },
         { title: "Care", path: "/app/care" },
         { title: "Admin Panel", path: "/admin/dashboard" },
-        // { title: "Cart", path: "/app/cart", cart_span: true },
     ])
 
     return (

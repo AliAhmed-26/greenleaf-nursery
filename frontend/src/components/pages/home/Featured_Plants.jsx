@@ -1,8 +1,5 @@
 import React from 'react'
 import './Featured_Plants.css'
-import Monstera_Deliciosa from "../../../images/Monstera Deliciosa.avif";
-import Snake_Plant from "../../../images/Snake Plant.avif";
-import Fiddle_Leaf_Fig from "../../../images/Fiddle Leaf Fig.avif";
 import Underline from '../../navbar/Underline'
 import { ImTree } from 'react-icons/im'
 import Card_Home_Shop from '../../navbar/Card_Home_Shop';

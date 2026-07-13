@@ -58,7 +58,6 @@ function App() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify({
         phone: formData.phone
@@ -91,6 +90,8 @@ function App() {
           }}
           toastOptions={{
             style: {
+              duration: 1000,
+              removeDelay: 0,
               background: "var(--primary)",
               color: "White",
               height: "60px",

@@ -1,10 +1,18 @@
 import express from "express"
 import productRoutes from "./routes/productRoutes.js"
-import userRoute from "./routes/userRoute.js"
-// import otpRoute from "./routes/otpRoute.js"
+
+import login_sign_user from './routes/userRoute/login_sign_user.js'
+
+import refresh_logout_user from './routes/userRoute/refresh_logout_user.js'
+
+import verification_me_user from './routes/userRoute/verification_me_user.js'
+
 import cartRoute from "./routes/cartRoute.js"
 import orderRoute from "./routes/orderRoute.js"
-import adminRoute from "./routes/adminRoute.js"
+import dboard_product_admin from "./routes/adminRoute/dboard_product_admin.js"
+
+import product_admin from './routes/adminRoute/product_admin.js'
+
 import aiRoute from "./routes/aiRoute.js"
 import mongoose from "mongoose"
 import cors from "cors"
@@ -13,8 +21,6 @@ import cookieParser from "cookie-parser";
 
 
 dotenv.config();
-// console.log("EMAIL:", process.env.EMAIL);
-// console.log("PASS:", process.env.EMAIL_APP_PASS);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,13 +32,22 @@ app.use(cors({
 app.use(express.json());
 
 app.use("/api", productRoutes)
+
 app.use(cookieParser());
-app.use("/auth", userRoute)
-// app.use("/auth", otpRoute)
+
+app.use("/auth", login_sign_user)
+app.use("/auth", refresh_logout_user)
+app.use("/auth", verification_me_user)
+
 app.use("/cart", cartRoute)
+
 app.use("/order", orderRoute)
-app.use("/admin", adminRoute)
+
+app.use("/admin", dboard_product_admin)
+app.use("/admin", product_admin)
+
 app.use("/ai", aiRoute)
+
 app.use("/images", express.static("public/images"))
 
 mongoose.connect(process.env.MONGO_URI)

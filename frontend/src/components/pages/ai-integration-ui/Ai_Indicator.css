@@ -7,8 +7,8 @@
     position: fixed;
     bottom: 18px;
     right: 18px;
-    width: 66px;
-    height: 66px;
+    width: 76px;
+    height: 76px;
 
     display: flex;
     flex-direction: column;
@@ -26,6 +26,11 @@
 
     box-shadow: 0 8px 25px rgba(46, 125, 50, .35);
     transition: .3s ease;
+}
+
+.ai-indicator-shop div {
+    font-size: 14px;
+    
 }
 
 .ai-indicator-shop:hover {
@@ -89,7 +94,7 @@
     gap: 12px;
 }
 
-/* Common bubble */
+
 .user-response-ai,
 .ai-response-ai {
     max-width: 80%;
@@ -97,14 +102,14 @@
     border-radius: 12px;
 }
 
-/* User */
+
 .user-response-ai {
     align-self: flex-end;
     background: var(--primary);
     color: white;
 }
 
-/* AI */
+
 .ai-response-ai {
     align-self: flex-start;
     background: #f1f1f1;
@@ -222,8 +227,8 @@
 @media (max-width: 500px) {
 
     .ai-container-shop {
-        width: 95vw;
-        height: 90vh;
+        width: 100vw;
+        height: 100vh;
 
         right: 2.5vw;
         bottom: 10px;

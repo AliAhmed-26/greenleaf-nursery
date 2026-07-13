@@ -8,13 +8,11 @@ const router = express.Router()
 router.post('/products_shop', async (req, res) => {
     const neww = await Product.create(req.body)
     res.json(neww)
-    console.log("Hello POST neww")
 })
 
 router.get('/my-products', async (req, res) => {
     const readd = await Product.find()
     res.json(readd)
-    console.log("Hello GET readdd")
 })
 
 export default router

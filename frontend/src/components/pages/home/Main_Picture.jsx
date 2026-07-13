@@ -1,13 +1,14 @@
 import React from 'react'
 import './Main_Picture.css'
 import { Link } from 'react-router-dom'
+import { IMAGE_URL } from '../../../config'
 const Main_Picture = () => {
   return (
     <>
       <div className="container">
         <div className="con">
 
-          <img src={"http://localhost:3000/images/Home_Main.avif"} className='main-picture-of-img' alt="hello" />
+          <img src={`${IMAGE_URL}/Home_Main.avif`} className='main-picture-of-img' alt="" />
           <div className="for-opa">
 
           </div>

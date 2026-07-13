@@ -4,6 +4,5 @@ export const check_role = (req, res, next) => {
             message: "Access Denied rolee"
         });
     }
-    console.log(req.user.role)
     next();
 };

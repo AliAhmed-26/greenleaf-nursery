@@ -1,12 +1,9 @@
 .logo-div {
-    /* border: 2px solid yellow; */
     gap: 0.6rem;
     color: var(--primary-dark);
     display: flex;
     font-size: 2rem;
     font-weight: bolder;
-    /* width: 100%; */
-    /* border: 2px solid black; */
 
 }
 
@@ -16,9 +13,3 @@
     margin-top: 0.29rem;
 }
 
-@media (max-width:500px) {
-    
-   
-
-
-}

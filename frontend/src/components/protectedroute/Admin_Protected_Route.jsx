@@ -17,9 +17,7 @@ const Admin_Protected_Route = () => {
     if (role !== "admin") {
         return <Navigate to='/app/home' replace />
     }
-    // if (role === "admin") {
-    //     return <Navigate to='/admin/dashboard' replace />
-    // }
+   
     return <>
         <Admin_Navbar />
         <Outlet />

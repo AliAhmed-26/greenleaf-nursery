@@ -9,6 +9,4 @@ await Product.deleteMany()
 await Product.find()
 await Product.insertMany(shop_array_product)
 
-console.log("Product insertedddddddddd")
-
 process.exit()
