@@ -51,7 +51,7 @@ const My_Orders = () => {
                                     {`Date: ${new Date(orders.createdAt).toLocaleString()}`}
                                 </h4>
 
-                                <span className={orders.status.toLowerCase()}>
+                                <span className={`status ${orders.status.toLowerCase()}`}>
                                     {orders.status}
                                 </span>
 

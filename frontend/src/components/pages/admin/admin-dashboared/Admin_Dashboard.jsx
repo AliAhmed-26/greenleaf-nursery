@@ -102,6 +102,9 @@ const Admin_Dashboard = () => {
                         value={order.status}>
                         <option value="Pending">Pending</option>
                         <option value="Confirmed">Confirmed</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
                       </select>
                     </td>
 
@@ -141,7 +144,7 @@ const Admin_Dashboard = () => {
           </div>
           {dashboard.low_stock_admin && dashboard.low_stock_admin.length > 0 ?
 
-            dashboard.low_stock_admin && (showAllLowStock ? dashboard.low_stock_admin : dashboard.low_stock_admin.slice(0, 3)).map((item,index) => (
+            dashboard.low_stock_admin && (showAllLowStock ? dashboard.low_stock_admin : dashboard.low_stock_admin.slice(0, 3)).map((item, index) => (
 
               <div className="low-stock-item" key={index}>
                 <img

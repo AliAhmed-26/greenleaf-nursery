@@ -205,6 +205,21 @@
     color: #2563eb;
 }
 
+.status.shipped {
+    background: #f3e8ff;
+    color: #9333ea;
+}
+
+.status.delivered {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.status.cancelled {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
 .dashboard-table select {
     padding: 7px 10px;
     border: 1px solid #ddd;

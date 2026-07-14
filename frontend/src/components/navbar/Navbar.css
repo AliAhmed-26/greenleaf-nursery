@@ -140,7 +140,7 @@ a.active-nav::after {
 
 
 
-@media (max-width:1060px) {
+@media (max-width:990px) {
     .hamsburger-div {
         /* display: block; */
         display: flex;

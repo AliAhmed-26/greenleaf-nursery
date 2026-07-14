@@ -35,36 +35,38 @@
     margin-top: 20px;
 }
 
-.pending {
+.status {
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+
+}
+
+
+
+.status.pending {
     background: #fff4d4;
     color: #d98b00;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-weight: 600;
 }
 
-.confirmed {
+.status.confirmed {
     background: #dbeafe;
     color: #2563eb;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-weight: 600;
 }
 
-.delivered {
-    background: #dff7df;
-    color: #228b22;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-weight: 600;
+.status.shipped {
+    background: #f3e8ff;
+    color: #9333ea;
 }
 
-.cancelled {
-    background: #ffdede;
-    color: #d40000;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-weight: 600;
+.status.delivered {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.status.cancelled {
+    background: #fee2e2;
+    color: #dc2626;
 }
 
 .total-item-my-order {
