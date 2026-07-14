@@ -26,12 +26,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173"
+  ],
   credentials: true
 }));
 app.use(express.json());
 
 app.use("/api", productRoutes)
+
 
 app.use(cookieParser());
 
@@ -66,12 +69,3 @@ app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 
-
-/*
-backend
-    node_modules
-    server.js
-    pakage-lock.json
-    package.json
-
-*/
