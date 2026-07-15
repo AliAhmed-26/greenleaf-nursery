@@ -84,7 +84,7 @@ router.post('/register',
         // Send OTP to the user's email
 
         await transporter.sendMail({
-            from: process.env.EMAIL,
+            // from: process.env.EMAIL,
             to: req.body.email,
             subject: "GreenLeaf OTP Verification",
             text: `Your OTP is ${otp}. It expires in 5 minutes.`
