@@ -66,7 +66,7 @@ router.post('/refresh-token', async (req, res) => {
             expiresIn: "15m"
         }
     )
-    
+
     // Send the newly generated access token back to the frontend
 
     res.json({
@@ -99,8 +99,9 @@ router.post("/logout", auth_middleware, async (req, res) => {
 
         res.clearCookie("refreshToken", {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax"
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
         // Remove the refresh token from the database. After this, even if someone has the old cookie, it can no longer be used to generate new access tokens.

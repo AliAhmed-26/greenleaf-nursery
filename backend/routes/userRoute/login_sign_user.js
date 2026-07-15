@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 import transporter from "../../config/mailer.js";
 import Otp from "../../models/optModel.js";
-import { loginLimiter,  registerLimiter } from "../../middleware/rateLimitMiddleware.js";
+import { loginLimiter, registerLimiter } from "../../middleware/rateLimitMiddleware.js";
 
 const router = express.Router()
 
@@ -181,14 +181,14 @@ router.post('/login',
         // Store refresh token in an HttpOnly cookie so JavaScript cannot access it.
 
 
-        const hiii = res.cookie("refreshToken", refreshToken, {
+         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
 
-            // Send access token to the frontend
+        // Send access token to the frontend
 
         res.json({
             message: "Login successfull",

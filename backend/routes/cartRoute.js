@@ -14,28 +14,57 @@ router.post("/add", auth_middleware, async (req, res) => {
 
     // <------- Check whether this product already exists in the logged-in user's cart -------->
 
-    const existing_user_product = await Cart.findOne({
-        productId: req.body.productId,
-        userId: req.user.id
-    })
+    // const existing_user_product = await Cart.findOne({
+    //     productId: req.body.productId,
+    //     userId: req.user.id
+    // })
 
+    // if (!existing_user_product) {
 
-    if (!existing_user_product) {
+    //     const cart_product = await Cart.create({
+    //         productId: req.body.productId,
+    //         qty: req.body.qty,
+    //         userId: req.user.id
+    //     })
 
-        const cart_product = await Cart.create({
-            productId: req.body.productId,
-            qty: req.body.qty,
-            userId: req.user.id
-        })
-
-        return res.json(cart_product);
-    }
+    //     return res.json(cart_product);
+    // }
 
     // <--------Product already exists, so simply increase its quantity -------->
 
-    existing_user_product.qty += 1
-    await existing_user_product.save()
-    return res.json(existing_user_product)
+    // existing_user_product.qty += 1
+    // await existing_user_product.save()
+    // return res.json(existing_user_product)
+
+
+    // <-------- Use this instead of upper logic --------->
+
+
+    try {
+        const cart = await Cart.findOneAndUpdate(
+            {
+                userId: req.user.id,
+                productId: req.body.productId
+            },
+            {
+                $inc: { qty: 1 },
+                $setOnInsert: {
+                    userId: req.user.id,
+                    productId: req.body.productId,
+                },
+            },
+            {
+                upsert: true,
+                new: true,
+            }
+        )
+        return res.json(cart);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+
+
 })
 
 
