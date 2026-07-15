@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react'
 import { Cart_Context } from '../../../context/context'
 import { useNavigate } from 'react-router-dom'
 import apiRequest from '../../../auth_apis/fetch_api'
+import toast from 'react-hot-toast'
 const Admin_Add = () => {
 
     const navigate = useNavigate()
@@ -36,17 +37,17 @@ const Admin_Add = () => {
         form_data.append("image", admin_form_add.image)
 
 
-       
-            let request_add_pro_adm = await apiRequest("/admin/add-product", {
-                method: "POST",
-                body: form_data
-            })
-            let response_add_pro_adm = await request_add_pro_adm.json()
 
+        let request_add_pro_adm = await apiRequest("/admin/add-product", {
+            method: "POST",
+            body: form_data
+        })
+        let response_add_pro_adm = await request_add_pro_adm.json()
 
-            navigate("/admin/products")
-            hi()
-        
+        toast.success("Product added succesfully")
+        navigate("/admin/products")
+        hi()
+
     }
 
 
@@ -121,10 +122,10 @@ const Admin_Add = () => {
 
 
                                     {/* <option >Select Category</option> */}
-                                    <option value="indoor">Indoor</option>
-                                    <option value="outdoor">Outdoor</option>
-                                    <option value="flowering">Flowering</option>
-                                    <option value="succulent">Succulent</option>
+                                    <option value="Indoor">Indoor</option>
+                                    <option value="Outdoor">Outdoor</option>
+                                    <option value="Flowering">Flowering</option>
+                                    <option value="Succulent">Succulent</option>
 
                                 </select>
 

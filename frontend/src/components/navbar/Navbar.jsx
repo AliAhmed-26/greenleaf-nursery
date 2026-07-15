@@ -6,6 +6,7 @@ import Logo_And_Text from './Logo_And_Text';
 import { Cart_Context } from '../context/context';
 import { useNavigate } from 'react-router-dom';
 import apiRequest from '../auth_apis/fetch_api';
+import toast from 'react-hot-toast';
 const Navbar = ({ links }) => {
     const { token, setToken } = useContext(Cart_Context)
     const navigate = useNavigate()
@@ -31,6 +32,7 @@ const Navbar = ({ links }) => {
             setToken(null)
 
         }
+        toast.success("Log out successfully")
 
     }
     const { totalItem } = useContext(Cart_Context)

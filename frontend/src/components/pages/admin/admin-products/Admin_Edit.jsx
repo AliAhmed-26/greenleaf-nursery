@@ -152,10 +152,10 @@ const Admin_Edit = () => {
 
 
 
-                                    <option value="indoor">Indoor</option>
-                                    <option value="outdoor">Outdoor</option>
-                                    <option value="flowering">Flowering</option>
-                                    <option value="succulent">Succulent</option>
+                                    <option value="Indoor">Indoor</option>
+                                    <option value="Outdoor">Outdoor</option>
+                                    <option value="Flowering">Flowering</option>
+                                    <option value="Succulent">Succulent</option>
 
                                 </select>
 

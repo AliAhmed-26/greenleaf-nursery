@@ -11,6 +11,7 @@ const router = express.Router()
 router.post('/add-product', auth_middleware, check_role, upload.single("image"), async (req, res) => {
 
     try {
+
         const add_product = await Product.create({
 
             title: req.body.title,

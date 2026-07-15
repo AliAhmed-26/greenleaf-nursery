@@ -55,7 +55,7 @@ router.post("/add", auth_middleware, async (req, res) => {
             },
             {
                 upsert: true,
-                new: true,
+                returnDocument: "after"
             }
         )
         return res.json(cart);

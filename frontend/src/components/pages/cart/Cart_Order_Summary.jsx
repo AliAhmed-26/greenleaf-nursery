@@ -80,7 +80,7 @@ const Cart_Order_Summary = () => {
                         navigate("checkout")
 
                     }} className="proceed-to-checkout">Proceed to Checkout</button>) : (<button onClick={() => navigate("checkout")} className="proceed-to-checkout-disable proceed-to-checkout" disabled={true}>Proceed to Checkout</button>))
-                        : (<button className="proceed-to-checkout" disabled={true} onClick={() => {
+                        : (<button className="proceed-to-checkout" onClick={() => {
                             handlePlaceOrder()
                         }} >Place the order</button>)
 
