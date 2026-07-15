@@ -215,7 +215,7 @@ const Admin_Products = () => {
                         </tbody>
                     </table>
                     {
-                        allproducts.length > 3 && (
+                        allproducts.length > 10 && (
                             <button
                                 className="show-more-btn"
                                 onClick={() => setshowAllProducts(!showAllProducts)}

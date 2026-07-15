@@ -27,10 +27,13 @@ const Shop = () => {
         <Buttons_Shop />
       </div>
       <div className="card-section-of-home-shop">
-        {shop_array_state.map((item, index) => {
-          return (<Card_Home_Shop key={index} item={item}
-          />)
-        })}
+
+      
+          {(showAllProducts ? shop_array_state : shop_array_state.slice(0,10)).map((item, index) => {
+              return (<Card_Home_Shop key={index} item={item}
+              />)
+            })
+          }
       </div>
       <Ai_Indicator />
 
