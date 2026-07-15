@@ -1,3 +1,4 @@
+import { IMAGE_URL } from "../../../../config";
 import { Cart_Context } from "../../../context/context";
 import Underline from "../../../navbar/Underline";
 import "./Admin_Dashboard.css";
@@ -148,7 +149,7 @@ const Admin_Dashboard = () => {
 
               <div className="low-stock-item" key={index}>
                 <img
-                  src={`http://localhost:3000/images/${item.image}`}
+                  src={`${IMAGE_URL}/${(item.image)}`}
                   alt={item.title}
                   className="product-image"
                 />

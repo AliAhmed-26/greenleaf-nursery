@@ -27,11 +27,9 @@ export const registerUser = async (name, email, password, confirm_password) => {
 
 
     if (request_sign.ok) {
-        console.log("Success")
         return null
     }
     else {
-        console.log(response_sign.message)
         return response_sign.message
     }
 }

@@ -9,7 +9,7 @@ import Ai_Indicator from '../ai-integration-ui/Ai_Indicator';
 
 const Shop = () => {
 
-
+  const [showAllProducts, setshowAllProducts] = useState(false);
 
   const { shop_array_state } = useContext(Cart_Context)
 
@@ -32,7 +32,18 @@ const Shop = () => {
           />)
         })}
       </div>
-      <Ai_Indicator/>
+      <Ai_Indicator />
+
+      {
+        shop_array_state.length > 3 && (
+          <button
+            className="show-more-btn"
+            onClick={() => setshowAllProducts(!showAllProducts)}
+          >
+            {showAllProducts ? "Show Less" : "Show More"}
+          </button>
+        )
+      }
     </>
   )
 }

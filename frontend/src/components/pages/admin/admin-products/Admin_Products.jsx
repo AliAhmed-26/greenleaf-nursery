@@ -1,3 +1,4 @@
+import { IMAGE_URL } from "../../../../config";
 import apiRequest from "../../../auth_apis/fetch_api";
 import { Cart_Context } from "../../../context/context";
 import Underline from "../../../navbar/Underline";
@@ -106,7 +107,7 @@ const Admin_Products = () => {
                                         <div className="product-info">
 
                                             <img
-                                                src={`http://localhost:3000/images/${product.image}`}
+                                                src={`${IMAGE_URL}/${product.image}`}
                                                 alt={product.title}
                                                 className="product-image"
                                             />

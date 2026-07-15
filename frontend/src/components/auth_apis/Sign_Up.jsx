@@ -156,7 +156,6 @@ const SignUp = () => {
                             ?
                             'Sign Up'
                             :
-                            (!error) &&
                             'Signning up.....'
                     }
 

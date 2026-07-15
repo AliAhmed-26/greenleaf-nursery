@@ -3,10 +3,10 @@ import rateLimit from "express-rate-limit";
 // <-------- Register Limiter ---------->
 
 export const registerLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
+    windowMs: 5 * 60 * 1000,
     max: 3,
     message: {
-        message: "Too many registrations. Please try again after 15 minutes."
+        message: "Too many registrations. Please try again after 5 minutes."
     }
 });
 
@@ -26,10 +26,10 @@ export const otpLimiter = rateLimit({
 // <-------- Login Limiter ---------->
 
 export const loginLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
+    windowMs: 5 * 60 * 1000,
     max: 5,
     message: {
-        message: "Too many login attempts. Please try again after 15 minutes."
+        message: "Too many login attempts. Please try again after 5 minutes."
     }
 });
 

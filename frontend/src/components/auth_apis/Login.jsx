@@ -135,7 +135,6 @@ const Login = () => {
                                 'Login'
 
                                 :
-                                (!error) &&
                                 'Logging in.....'
 
                         }

@@ -67,7 +67,7 @@ const Checkout = () => {
                             onChange={handleChange}
                             placeholder="Enter your phone number"
                         />
-                        {nameError && (<p>Phone is required</p>)}
+                        {nameError && (<p className="error-ui">Phone is required</p>)}
                     </div>
 
                     <div className="input-group">

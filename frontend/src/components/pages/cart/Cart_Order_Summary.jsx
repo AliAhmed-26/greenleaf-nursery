@@ -13,7 +13,7 @@ const Cart_Order_Summary = () => {
 
     const location = useLocation();
     const isCheckout = location.pathname === "/app/cart/checkout";
-    
+
 
     const handlePlaceOrder = async () => {
         const success = await placeOrder();
@@ -21,10 +21,10 @@ const Cart_Order_Summary = () => {
         if (success) {
             navigate("/app/my-orders");
         }
-        
+
     }
 
-    
+
 
     return (
         <div className="summary-cart">
@@ -78,10 +78,10 @@ const Cart_Order_Summary = () => {
                 {
                     !isCheckout ? (cart.length > 0 ? (<button onClick={() => {
                         navigate("checkout")
-        
+
                     }} className="proceed-to-checkout">Proceed to Checkout</button>) : (<button onClick={() => navigate("checkout")} className="proceed-to-checkout-disable proceed-to-checkout" disabled={true}>Proceed to Checkout</button>))
-                        : (<button className="proceed-to-checkout" onClick={() => {
-                            handlePlaceOrder()   
+                        : (<button className="proceed-to-checkout" disabled={true} onClick={() => {
+                            handlePlaceOrder()
                         }} >Place the order</button>)
 
                 }
