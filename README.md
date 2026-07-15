@@ -54,20 +54,6 @@ A full-stack **MERN e-commerce** application for a modern online plant nursery f
 
 ---
 
-## 📸 Preview
-
-> Add screenshots or GIFs here
-
-- Home Page
-- Shop
-- Product Details
-- Cart
-- Checkout
-- Admin Dashboard
-- AI Recommendation
-
----
-
 # ✨ Features
 
 ## 🔒 Security Features
