@@ -25,9 +25,9 @@ const Cart_Order_Collection = () => {
                     <button onClick={() => { navigate("/app/shop") }} className="browse-plant-button">Browse Plant</button>
                 </div>
             }
-            {cart.map((item) => {
+            {cart.map((item,index) => {
                 return (
-                    <React.Fragment key={item.productId._id}>
+                    <React.Fragment key={index}>
                         <div className="card-cart">
 
                             <div className="card-image-div-cart">
