@@ -4,6 +4,7 @@ import Logo_And_Text from './Logo_And_Text'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { FaPaperPlane } from "react-icons/fa";
+import toast from 'react-hot-toast'
 const Footer = () => {
     const [email, setEmail] = useState('')
     const [error, setError] = useState('')
@@ -22,7 +23,7 @@ const Footer = () => {
         }
         else {
 
-        alert("Email is sent successfully")
+        toast.success("Email sent successfully")
         setEmail("")
         }
     }
