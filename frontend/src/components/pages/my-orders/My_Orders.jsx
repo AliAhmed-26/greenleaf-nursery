@@ -66,7 +66,7 @@ const My_Orders = () => {
 
                                             <div className="card-image-div-cart">
 
-                                                <img src={`${IMAGE_URL}/${(item.image)}`} className="card-image-cart" />
+                                                <img src={`${IMAGE_URL}/${(item.image)}`} alt={item.title} className="card-image-cart" />
                                             </div>
 
                                             <div className="card-info-cart">
@@ -81,9 +81,6 @@ const My_Orders = () => {
                                                     <p>
                                                         {(`x ${item.qty}`)}
                                                     </p>
-
-                                                    <h3 className="remove-cart">
-                                                    </h3>
                                                 </div>
                                             </div>
                                             <h3 className="amount-per-item">

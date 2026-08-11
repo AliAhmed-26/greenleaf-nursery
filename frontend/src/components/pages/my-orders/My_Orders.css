@@ -13,14 +13,17 @@
     letter-spacing: .5px;
 }
 
-
+.card-cart {
+    /* border: 2px solid black; */
+    padding: 0;
+}
 
 .order-card-my-order {
     background: white;
     /* border: 2px solid red; */
     border-radius: 15px;
     padding: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
 }
 
@@ -28,11 +31,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 2px solid red; */
     width: 95%;
     margin: auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    /* margin-bottom: 20px; */
+    margin-top: 10px;
 }
 
 .status {
@@ -82,7 +84,6 @@
 }
 
 .order-footer {
-    margin-top: 20px;
     display: flex;
     width: 95%;
     margin: auto;
@@ -94,7 +95,7 @@
     background: #2d7d46;
     color: white;
     border: none;
-    padding: 10px 18px;
+    /* padding: 10px 18px; */
     border-radius: 8px;
     cursor: pointer;
 }
@@ -137,4 +138,13 @@
 
 .empty-orders button:hover {
     background: #24673a;
+}
+
+
+
+@media (max-width: 510px) {
+    .button-div-cart p{
+        width: 100%;
+    }
+
 }

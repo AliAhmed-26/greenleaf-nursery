@@ -25,14 +25,14 @@ const Cart_Order_Collection = () => {
                     <button onClick={() => { navigate("/app/shop") }} className="browse-plant-button">Browse Plant</button>
                 </div>
             }
-            {cart.map((item,index) => {
+            {cart.map((item, index) => {
                 return (
                     <React.Fragment key={index}>
                         <div className="card-cart">
 
                             <div className="card-image-div-cart">
 
-                                <img src={`${IMAGE_URL}/${(item.productId.image)}`} className="card-image-cart" />
+                                <img src={`${IMAGE_URL}/${(item.productId.image)}`} alt={item.productId.title} className="card-image-cart" />
                             </div>
 
                             <div className="card-info-cart">

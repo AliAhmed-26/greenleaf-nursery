@@ -48,6 +48,8 @@ const Footer = () => {
                         <Link className='a-footer' to="shop">Shop</Link>
                         <Link className='a-footer' to="about">About</Link>
                         <Link className='a-footer' to="care">Care</Link>
+                        <Link className='a-footer' to="my-orders">Orders</Link>
+                        <Link className='a-footer' to="cart">Cart</Link>
                     </div>
                     <div className="newsletter">
                         <h2 className="newsletter-footer-heading">

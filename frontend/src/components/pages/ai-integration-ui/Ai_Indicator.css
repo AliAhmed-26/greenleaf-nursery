@@ -228,10 +228,13 @@
 
     .ai-container-shop {
         width: 100vw;
-        height: 100vh;
+        height: 100vh;   /* fallback for older browsers */
+        height: 100dvh;  /* actual visible height, overrides above on modern browsers */
 
-        right: 2.5vw;
-        bottom: 10px;
+        right: 0;
+        bottom: 0;
+
+        border-radius: 0;  /* edge-to-edge par rounded corners ajeeb lagte hain */
     }
 
 }

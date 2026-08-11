@@ -86,9 +86,6 @@ A full-stack **MERN e-commerce** application for a modern online plant nursery f
 
 - Dashboard
 - Product Management ( **CRUD** )
-<!-- - Add Products
-- Edit Products
-- Delete Products -->
 - Upload Product Images
 - View Recent Orders
 - View Recent Customers

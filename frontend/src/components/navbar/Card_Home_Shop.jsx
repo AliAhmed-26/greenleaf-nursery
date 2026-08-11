@@ -11,7 +11,7 @@ const Card_Home_Shop = ({ item }) => {
         <>
 
             <div className="card-of-home-shop">
-                <img src={`${IMAGE_URL}/${(item.image)}`} className="card-image-of-home-shop" />
+                <img src={`${IMAGE_URL}/${(item.image)}`} alt={item.title} className="card-image-of-home-shop" />
 
                 <div className="div-wrapper-of-home-shop">
                     <h2 className="card-heading-of-home-shop">{item.title}</h2>

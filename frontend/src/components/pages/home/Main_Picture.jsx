@@ -8,7 +8,7 @@ const Main_Picture = () => {
       <div className="container">
         <div className="con">
 
-          <img src={`${IMAGE_URL}/Home_Main.avif`} className='main-picture-of-img' alt="" />
+          <img src={`${IMAGE_URL}/Home_Main.avif`} className='main-picture-of-img' alt="Indoor and outdoor plants at GreenLeaf Nursery" />
           <div className="for-opa">
 
           </div>
