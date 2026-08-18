@@ -85,6 +85,17 @@ const SignUp = () => {
                 <h1 className="welcom-login">
                     Create Account
                 </h1>
+                <div className="demo-account">
+                    <h4>🌿 Live Demo Notice</h4>
+                    <p>
+                        Sign-up is temporarily unavailable in the live demo because
+                        email verification is disabled in the demo environment.
+                    </p>
+                    <p>
+                        Please use the <strong>demo account</strong> provided on the Login page
+                        to explore all the features.
+                    </p>
+                </div>
 
                 <div className='username-login'>
                     <input

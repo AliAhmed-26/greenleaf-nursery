@@ -36,71 +36,80 @@ router.post('/register',
 
         // Check validation errors
 
-        const errors = validationResult(req);
+        try {
 
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                message: errors.array()[0].msg
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                return res.status(400).json({
+                    message: errors.array()[0].msg
+                })
+            }
+
+            // Check whether the email is already registered
+
+            const existingUser = await User.findOne({
+                email: req.body.email
             })
-        }
 
-        // Check whether the email is already registered
+            if (existingUser) {
+                return res.status(400).json({
+                    message: "Email already exist"
+                })
+            }
 
-        const existingUser = await User.findOne({
-            email: req.body.email
-        })
+            // Make sure both passwords match
 
-        if (existingUser) {
-            return res.status(400).json({
-                message: "Email already exist"
+            if (req.body.password !== req.body.confirm_password) {
+                return res.status(400).json({
+                    message: "Password must be same"
+                })
+            }
+
+            const otp = Math.floor(100000 + Math.random() * 900000)
+
+            const email_var = req.body.email
+
+            // Remove any previous OTP for this email so only one valid OTP exists at a time.
+
+            await Otp.deleteOne({
+                email: req.body.email
             })
-        }
 
-        // Make sure both passwords match
 
-        if (req.body.password !== req.body.confirm_password) {
-            return res.status(400).json({
-                message: "Password must be same"
+            const create_otp_collection = await Otp.create({
+                email: req.body.email,
+                otp: otp,
+                expiresAt: new Date(Date.now() + 5 * 60 * 1000),
             })
+
+            // Send OTP to the user's email
+
+            await transporter.sendMail({
+                // from: process.env.EMAIL,
+                to: req.body.email,
+                subject: "GreenLeaf OTP Verification",
+                text: `Your OTP is ${otp}. It expires in 5 minutes.`
+            })
+
+
+
+
+
+
+            res.json({
+                message: "Otp sent successfully",
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password,
+            })
+        } catch (error) {
+            console.error("REGISTER ERROR:", error);
+
+            return res.status(500).json({
+                message: "Failed to send OTP"
+            });
         }
-
-        const otp = Math.floor(100000 + Math.random() * 900000)
-
-        const email_var = req.body.email
-
-        // Remove any previous OTP for this email so only one valid OTP exists at a time.
-
-        await Otp.deleteOne({
-            email: req.body.email
-        })
-
-
-        const create_otp_collection = await Otp.create({
-            email: req.body.email,
-            otp: otp,
-            expiresAt: new Date(Date.now() + 5 * 60 * 1000),
-        })
-
-        // Send OTP to the user's email
-
-        await transporter.sendMail({
-            // from: process.env.EMAIL,
-            to: req.body.email,
-            subject: "GreenLeaf OTP Verification",
-            text: `Your OTP is ${otp}. It expires in 5 minutes.`
-        })
-
-
-
-
-
-
-        res.json({
-            message: "Otp sent successfully",
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password,
-        })
     })
 
 
@@ -181,7 +190,7 @@ router.post('/login',
         // Store refresh token in an HttpOnly cookie so JavaScript cannot access it.
 
 
-         res.cookie("refreshToken", refreshToken, {
+        res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
